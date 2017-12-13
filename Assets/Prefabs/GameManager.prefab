@@ -138,6 +138,15 @@ MonoBehaviour:
   bonusTime: 5
   collectableText: {fileID: 0}
   collectables: 0
+  comboText: {fileID: 0}
+  comboNumberText: {fileID: 0}
+  comboHit: 0
   reverseText: {fileID: 0}
-  WinText: {fileID: 0}
+  resultsTitleText: {fileID: 0}
+  results: {fileID: 0}
   fadeImage: {fileID: 0}
+  carEngineSound: {fileID: 8300000, guid: f19cc551df670db4789900c0c00d7d2f, type: 3}
+  musicSound: {fileID: 8300000, guid: 9a699c4ee0f60ed4bab2b4c18644bf50, type: 3}
+  isStartGame: 0
+  isLoser: 0
+  isYouWin: 0

@@ -486,12 +486,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17cc4ddbcafaf9b4f80040eceef54dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directions: 1
   GM: {fileID: 0}
-  isMoving: 0
+  directions: 1
   speed: -20
   spawnPosition: 150
   crashSound: {fileID: 8300000, guid: 24ec10582254eac4897056aea00448ca, type: 3}
+  volume: 0.3
+  isMoving: 1
 --- !u!135 &135124988373892638
 SphereCollider:
   m_ObjectHideFlags: 1
