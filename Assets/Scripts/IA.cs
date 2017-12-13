@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class IA : MonoBehaviour {
 
-    public enum Directions { HORIZONTAL, VERTICAL }
+    public enum Directions { Horizontal, Vertical }
     public GameManager GM;
     private AudioSource source;
     private Rigidbody rb;
@@ -36,13 +36,13 @@ public class IA : MonoBehaviour {
     {
 
 
-        if (directions == Directions.VERTICAL && isMoving)
+        if (directions == Directions.Vertical && isMoving)
         {
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
             
         }
 
-        if (directions == Directions.HORIZONTAL && isMoving)
+        if (directions == Directions.Horizontal && isMoving)
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
@@ -69,13 +69,13 @@ public class IA : MonoBehaviour {
         if (other.gameObject.tag == "Traffico")
         {
 
-            if (directions == Directions.VERTICAL && isMoving)
+            if (directions == Directions.Vertical && isMoving)
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - spawnPosition);
 
             }
 
-            if (directions == Directions.HORIZONTAL && isMoving)
+            if (directions == Directions.Horizontal && isMoving)
             {
                 transform.position = new Vector3(transform.position.x - spawnPosition, transform.position.y, transform.position.z);
             }
