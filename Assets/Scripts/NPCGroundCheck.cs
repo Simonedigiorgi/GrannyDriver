@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour {
+public class NPCGroundCheck : MonoBehaviour {
 
-    private CarController CC;
 
-    void Start () {
-        CC = GetComponentInParent<CarController>();
+    private IA traffic;
+
+    void Start()
+    {
+        traffic = GetComponentInParent<IA>();
     }
-	
+
     public void OnTriggerStay(Collider other)                                           // Il collider tocca il terreno
     {
         if (other.gameObject.tag == "Plane")
         {
-            CC.isOnGround = true;
+            traffic.isMoving = true;
         }
     }
 
@@ -22,8 +24,7 @@ public class GroundCheck : MonoBehaviour {
     {
         if (other.gameObject.tag == "Plane")
         {
-            CC.isOnGround = false;
+            traffic.isMoving = false;
         }
     }
-
 }

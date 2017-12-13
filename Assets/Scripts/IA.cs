@@ -5,18 +5,24 @@ using DG.Tweening;
 
 public class IA : MonoBehaviour {
 
+    private GameObject Player;                                                  
+
     public enum Directions { Horizontal, Vertical }
     public GameManager GM;
     private AudioSource source;
     private Rigidbody rb;
 
     [Header("Select Directions")]
-    [Space(10)]
     public Directions directions;
 
     [Header("Speed and Positions")]
     public float speed;
     public float spawnPosition;                                                 // Pooling Positions
+
+    [Header("Explosion")]
+    public float explosionForce;                                                // Forza dell'esplosione
+    public float explosionRadius;                                               // Radius dell'esplosione
+    public float yCoordinates;                                                  // Spinta dell'esplosione (Y)
 
     [Header("Audio and Volume")]
     public AudioClip crashSound;
@@ -27,7 +33,7 @@ public class IA : MonoBehaviour {
     public bool isMoving = true;
 
     void Start () {
-
+        Player = GameObject.FindGameObjectWithTag("Player");                    // Cerca l'oggetto con TAG "Player"
         source = GetComponent<AudioSource>();
 
 	}
@@ -62,6 +68,7 @@ public class IA : MonoBehaviour {
             hasAudioTriggered = true;
             source.PlayOneShot(crashSound, volume);
         }
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -81,6 +88,8 @@ public class IA : MonoBehaviour {
             }
 
         }
+
+
     }
 
     IEnumerator Crash()
@@ -102,7 +111,7 @@ public class IA : MonoBehaviour {
         {
             childs[i].gameObject.AddComponent<Rigidbody>();
             childs[i].parent = null;
-            childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10, ForceMode.VelocityChange);
+            childs[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, yCoordinates, ForceMode.Impulse);
         }
     }
 
