@@ -131,7 +131,7 @@ public class QuestManager : MonoBehaviour
 
     // THIRD MISSIONS
 
-    public void Third1()                                                                // Third (1)
+    public void Third1()                                                                    // Third (1)
     {
         //bool isCompleted;
 

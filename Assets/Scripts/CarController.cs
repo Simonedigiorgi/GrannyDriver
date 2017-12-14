@@ -3,69 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 
-
 public class CarController : MonoBehaviour
 {
-    //[HideInInspector]
-    //public GameObject camera;
     public GameManager gameManager;
     private AudioSource source;
 
     [Header("Car Stats")]
     [Space(10)]
+    public float accellerationSpeed = 0.4f;                                 // Velocità di Accellerazione
+    public float decellerationSpeed = 0.4f;                                 // Accellerazione Retromarcia
     public float MaxSpeed = 15.0f;                                          // Velocità Massima
-    public float MaxSteer = 4.0f;                                           // Sterzata Massima
-    public float Breaks = 0.2f;                                             // Freni
-
-    [SerializeField]
-    public float Acceleration = 0.0f;                                       // Accellerazione
-    public float Steer = 1.0f;                                              // Sterzata
-
-    public float accSpeed = 0.4f;                                           // Velocità di Accellerazione
-    public float decSpeed = 0.4f;                                           // Velocità Retromarcia
+    [Space(10)]
     public float steerSpeed = 0.06f;                                        // Velocità di sterzata
-    public float accBrake = 0.4f;                                           // Velocità Freni
+    public float Steer = 1.0f;                                              // Sterzata
+    public float MaxSteer = 4.0f;                                           // Sterzata Massima
+    [Space(10)]
+    public float accellerationBrakes = 0.4f;                                // Reazione dei Freni
+    public float Break = 0.2f;                                              // Freni
 
-    bool AccelFwd, AccelBwd;
-    bool SteerLeft, SteerRight;
-
-    [HideInInspector]
-    public bool isActive;                                                   // Il Player è attivo                                      
+    bool AccellerationForward;
+    bool AccellerationBackwards;
+    bool SteerLeft;
+    bool SteerRight;
+                                  
     bool isMad;                                                             // E' in guida spericolata                
     int randomNumber;                                                       // Direzioni della guida spericolata
 
-    [Header("(DEBUG)")]
-    public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
-
-    //[Header("Audio")]
-    //[Space(10)]
-    //public AudioClip Crash;
     private bool isCrashsnd;                                                // Has sound crash triggered? (bool that trigger only ONE time)
+    [HideInInspector]
     public bool isOnGround;                                                 // Is the Car colliding the Ground? (Both frontal wheels)
 
-    public AudioClip VoiceCrash;
-    public AudioClip VoiceCrash2;
-    public AudioClip Brakes;
+    [Header("Audio")]
+    public AudioClip grannyAudio1;
+    public AudioClip grannyAudio2;
+    public AudioClip BrakesAudio;
+    [Space(10)]
+    public float volume = 0.3f;                                             // Modifica il volume dell'audio
 
-    float volume = 0.3f;                                                    // Modifica il volume dell'audio
-
-
+    [Header("(DEBUG)")]
+    public bool isActive;                                                   // Il Player è attivo  
+    public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
+    [SerializeField]
+    public float Acceleration = 0.0f;                                       // Accellerazione
 
     void Start()
-    {
-
-        //isGrannyDriving = true;
-        
+    {      
         source = GetComponent<AudioSource>();
-        isActive = true;
-
-        InvokeRepeating("RandomDirection", 0, 0.3f);
-
+        isActive = true;                                                    // Attiva il Player
+        InvokeRepeating("RandomDirection", 0, 0.3f);                        // Richiama la RandomDirection e sceglie una direzione casuale
     }
 
     private void Update()
     {
-        // PREMI "R" PER LA RETROMARCIA
+        #region Retromarcia
 
         if (Input.GetKeyDown(KeyCode.R) && gameManager.reverseText.enabled == false)
         {
@@ -75,12 +65,13 @@ public class CarController : MonoBehaviour
         {
             gameManager.reverseText.enabled = false;
         }
+        #endregion
 
-        // Granny Driving
+        #region Granny Driving
 
         if (Acceleration > MaxSpeed && isGrannyDriving == true)
         {
-            isMad = true;
+            //isMad = true;
 
             if(randomNumber == 0)
             {
@@ -96,74 +87,73 @@ public class CarController : MonoBehaviour
         else
         {
             
-            isMad = false;
+            //isMad = false;
 
         }
+        #endregion
 
     }
 
     void FixedUpdate()
-    {
-
-
-        // COMANDI DI MOVIMENTO
+    {      
+        #region Comani di Movimento
 
         if (isActive == true && isOnGround)
         {
             if (Input.GetKey(KeyCode.W) && gameManager.reverseText.enabled == false)
             {
-                Accel(1);                                                   //Accelerate in forward direction
+                StartAccelleration(1);              //Accelerate in forward direction
 
             }
 
             else if (Input.GetKey(KeyCode.S) && gameManager.reverseText.enabled == true)
             {
-                Accel(-1);                                                  //Accelerate in backward direction
+                StartAccelleration(-1);             //Accelerate in backward direction
             }
 
             else if (Input.GetKey(KeyCode.Space))
             {
-                if (AccelFwd)
+                if (AccellerationForward)
                 {
-                    StopAccel(1, Breaks);                                   //Breaks while in forward direction
+                    StopAccelleration(1, Break);    //Breaks while in forward direction
                 }
 
-                else if (AccelBwd)
+                else if (AccellerationBackwards)
                 {
-                    StopAccel(-1, Breaks);                                  //Breaks while in backward direction
+                    StopAccelleration(-1, Break);   //Breaks while in backward direction
                 }
             }
             else
             {
-                if (AccelFwd)
+                if (AccellerationForward)
                 {
-                    StopAccel(1, accBrake);                                     //Applies breaks slowly if no key is pressed while in forward direction
+                    StopAccelleration(1, accellerationBrakes);                      //Applies breaks slowly if no key is pressed while in forward direction
                 }
 
-                else if (AccelBwd)
+                else if (AccellerationBackwards)
                 {
-                    StopAccel(-1, accBrake);                                    //Applies breaks slowly if no key is pressed while in backward direction
+                    StopAccelleration(-1, accellerationBrakes);                     //Applies breaks slowly if no key is pressed while in backward direction
                 }
 
             }
 
 
         }
+        #endregion
 
     }
 
-    // ACCELLERATION
-    #region Acceleration
+    #region Start Acceleration
 
-    public void Accel(int Direction)
+    public void StartAccelleration(int Direction)
     {
         if (Direction == 1)
         {
-            AccelFwd = true;
+            AccellerationForward = true;
 
             if (Acceleration <= MaxSpeed)
             {
-                Acceleration += accSpeed;
+                Acceleration += accellerationSpeed;
             }
 
 
@@ -182,11 +172,11 @@ public class CarController : MonoBehaviour
 
         else if (Direction == -1)
         {
-            AccelBwd = true;
+            AccellerationBackwards = true;
 
             if ((-1 * MaxSpeed) <= Acceleration)
             {
-                Acceleration -= decSpeed;
+                Acceleration -= decellerationSpeed;
             }
 
 
@@ -213,10 +203,9 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
-    // STOP ACCELLERATION
     #region Stop Acceleration
 
-    public void StopAccel(int Direction, float BreakingFactor)
+    public void StopAccelleration(int Direction, float BreakingFactor)
     {
         if (Direction == 1)
         {
@@ -238,7 +227,7 @@ public class CarController : MonoBehaviour
             }
             else
             {
-                AccelFwd = false;
+                AccellerationForward = false;
             }
 
         }
@@ -263,7 +252,7 @@ public class CarController : MonoBehaviour
             }
             else
             {
-                AccelBwd = false;
+                AccellerationBackwards = false;
             }
 
         }
@@ -277,8 +266,7 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
-
-    // ON COLLISION
+    #region On Collision Enter
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -286,12 +274,6 @@ public class CarController : MonoBehaviour
 
         if(collision.gameObject.tag == "Objects" && !isCrashsnd)
         {
-
-            // Avvicina la telecamera **********************************************************
-
-            //camera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 60, this.transform.position.z);
-
-
             List<Transform> childs = new List<Transform>();
 
             childs.Add(transform.GetChild(0));
@@ -309,17 +291,16 @@ public class CarController : MonoBehaviour
 
             // Inizializza coroutine
 
-            source.PlayOneShot(VoiceCrash);
+            source.PlayOneShot(grannyAudio1);
             StartCoroutine(gameManager.LOSER());
             isCrashsnd = true;
         }
     }
+    #endregion
 
     public void RandomDirection()
     {
         randomNumber = Random.Range(0, 2);
     }
-
-
 
 }
