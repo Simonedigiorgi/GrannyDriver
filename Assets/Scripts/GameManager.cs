@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     private AudioSource source;
     public GameObject Player;                                               // GIOCATORE
     public QuestManager questManager;
+
+
     //public IA AImanager;
 
     [Space(10)]
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
 
         source = GetComponent<AudioSource>();
+
 
         // Abilita/Disabilita Sprites e Testi
 

@@ -29,21 +29,19 @@ public class IA : MonoBehaviour {
 
     [Header("Audio and Volume")]
     public AudioClip crashSound;
+    public AudioClip hornSound;                                                 // Suono del clacson
     public float volume = 0.3f;
     private bool hasAudioTriggered;
+    public bool isHornActive;
 
     [Header("DEBUG")]
     public bool isMoving = true;
-    public bool isParking;
 
     void Start () {
 
-        ParkingArea = GameObject.FindGameObjectWithTag("ParkingArea");          // Cerca l'oggetto con TAG "ParkingArea"
         Player = GameObject.FindGameObjectWithTag("Player");                    // Cerca l'oggetto con TAG "Player"
 
         source = GetComponent<AudioSource>();
-
-        isParking = false;
 
 	}
 
@@ -76,6 +74,11 @@ public class IA : MonoBehaviour {
             gameManager.comboHit++; // Aumenta la combo di 1
             hasAudioTriggered = true;
             source.PlayOneShot(crashSound, volume);
+
+            if (isHornActive)       // Suona il clacson?
+            {
+                source.PlayOneShot(hornSound, volume);
+            }
         }
 
     }
@@ -98,13 +101,6 @@ public class IA : MonoBehaviour {
 
         }
 
-        if(other.gameObject.tag == "ParkingArea")
-        {
-            isParking = true;
-            // Parcheggia la limousine
-        }
-
-
     }
 
     IEnumerator Crash()
@@ -116,8 +112,8 @@ public class IA : MonoBehaviour {
         List<Transform> childs = new List<Transform>();
 
         childs.Add(transform.GetChild(0));
-        //childs.Add(transform.GetChild(1));
-        //childs.Add(transform.GetChild(2));
+        childs.Add(transform.GetChild(1));
+        childs.Add(transform.GetChild(2));
         childs.Add(transform.GetChild(3));
 
 

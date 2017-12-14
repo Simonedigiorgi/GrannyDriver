@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class Accappottamento : MonoBehaviour {
 
-
-    public GameManager gameManager;                                                      // Get the Game Manager Component
-
-    private CarController CC;                                                   // Get the CarController Script
-
+    public GameManager gameManager;                                                                 // Get the Game Manager Component
+    private CarController carController;                                                            // Get the CarController Script
 
     void Start () {
 
-        CC = GetComponentInParent<CarController>();
+        carController = GetComponentInParent<CarController>();
 	}
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Plane")
         {
-            CC.isActive = false;                                                
+            carController.isActive = false;                                                
             StartCoroutine(gameManager.LOSER());                                         
         }
     }

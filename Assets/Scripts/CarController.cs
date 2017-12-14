@@ -30,24 +30,26 @@ public class CarController : MonoBehaviour
     int randomNumber;                                                       // Direzioni della guida spericolata
 
     private bool isCrashsnd;                                                // Has sound crash triggered? (bool that trigger only ONE time)
-    [HideInInspector]
-    public bool isOnGround;                                                 // Is the Car colliding the Ground? (Both frontal wheels)
+    [HideInInspector]  public bool isOnGround;                              // Is the Car colliding the Ground? (Both frontal wheels)
 
     [Header("Audio")]
     public AudioClip grannyAudio1;
     public AudioClip grannyAudio2;
     public AudioClip BrakesAudio;
+
     [Space(10)]
     public float volume = 0.3f;                                             // Modifica il volume dell'audio
 
     [Header("(DEBUG)")]
     public bool isActive;                                                   // Il Player è attivo  
     public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
-    [SerializeField]
-    public float Acceleration = 0.0f;                                       // Accellerazione
+    public bool isWearingGlasses = true;                                    // Mostra i testi nella sua grandezza reale
+
+    [SerializeField] public float Acceleration = 0.0f;                      // Accellerazione
 
     void Start()
-    {      
+    {
+
         source = GetComponent<AudioSource>();
         isActive = true;                                                    // Attiva il Player
         InvokeRepeating("RandomDirection", 0, 0.3f);                        // Richiama la RandomDirection e sceglie una direzione casuale
@@ -295,6 +297,9 @@ public class CarController : MonoBehaviour
             StartCoroutine(gameManager.LOSER());
             isCrashsnd = true;
         }
+
+
+
     }
     #endregion
 
