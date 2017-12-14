@@ -9,6 +9,8 @@ TagManager:
   - Plane
   - Traffico
   - GameManager
+  - QuestManager
+  - ParkingArea
   layers:
   - Default
   - TransparentFX

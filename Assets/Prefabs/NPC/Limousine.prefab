@@ -375,7 +375,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529965312100658}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -450,7 +450,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -474,7 +474,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114141301551998484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,16 +486,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17cc4ddbcafaf9b4f80040eceef54dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GM: {fileID: 0}
+  gameManager: {fileID: 0}
+  questManager: {fileID: 0}
   directions: 1
   speed: -20
-  spawnPosition: 150
+  positionX: 0
+  positionZ: 150
   explosionForce: 40
   explosionRadius: 40
-  yCoordinates: 10
+  explosionJump: 10
   crashSound: {fileID: 8300000, guid: 24ec10582254eac4897056aea00448ca, type: 3}
   volume: 0.3
   isMoving: 1
+  isParking: 1
 --- !u!135 &135001389091474416
 SphereCollider:
   m_ObjectHideFlags: 1

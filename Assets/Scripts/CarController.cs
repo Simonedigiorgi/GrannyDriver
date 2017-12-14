@@ -7,8 +7,8 @@ using DG.Tweening;
 public class CarController : MonoBehaviour
 {
     //[HideInInspector]
-    public GameObject camera;
-    public GameManager GM;
+    //public GameObject camera;
+    public GameManager gameManager;
     private AudioSource source;
 
     [Header("Car Stats")]
@@ -67,13 +67,13 @@ public class CarController : MonoBehaviour
     {
         // PREMI "R" PER LA RETROMARCIA
 
-        if (Input.GetKeyDown(KeyCode.R) && GM.reverseText.enabled == false)
+        if (Input.GetKeyDown(KeyCode.R) && gameManager.reverseText.enabled == false)
         {
-            GM.reverseText.enabled = true;
+            gameManager.reverseText.enabled = true;
         }
-        else if (Input.GetKeyDown(KeyCode.R) && GM.reverseText.enabled == true)
+        else if (Input.GetKeyDown(KeyCode.R) && gameManager.reverseText.enabled == true)
         {
-            GM.reverseText.enabled = false;
+            gameManager.reverseText.enabled = false;
         }
 
         // Granny Driving
@@ -110,13 +110,13 @@ public class CarController : MonoBehaviour
 
         if (isActive == true && isOnGround)
         {
-            if (Input.GetKey(KeyCode.W) && GM.reverseText.enabled == false)
+            if (Input.GetKey(KeyCode.W) && gameManager.reverseText.enabled == false)
             {
                 Accel(1);                                                   //Accelerate in forward direction
 
             }
 
-            else if (Input.GetKey(KeyCode.S) && GM.reverseText.enabled == true)
+            else if (Input.GetKey(KeyCode.S) && gameManager.reverseText.enabled == true)
             {
                 Accel(-1);                                                  //Accelerate in backward direction
             }
@@ -310,7 +310,7 @@ public class CarController : MonoBehaviour
             // Inizializza coroutine
 
             source.PlayOneShot(VoiceCrash);
-            StartCoroutine(GM.LOSER());
+            StartCoroutine(gameManager.LOSER());
             isCrashsnd = true;
         }
     }

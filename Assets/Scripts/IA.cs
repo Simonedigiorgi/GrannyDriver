@@ -5,36 +5,45 @@ using DG.Tweening;
 
 public class IA : MonoBehaviour {
 
-    private GameObject Player;                                                  
+    private GameObject Player;
+    private GameObject ParkingArea;
 
     public enum Directions { Horizontal, Vertical }
-    public GameManager GM;
+    public GameManager gameManager;
+    public QuestManager questManager;
     private AudioSource source;
     private Rigidbody rb;
 
-    [Header("Select Directions")]
+    [Header("Directions and Speed")]
     public Directions directions;
-
-    [Header("Speed and Positions")]
     public float speed;
-    public float spawnPosition;                                                 // Pooling Positions
+
+    [Header("Respawn Positions")]
+    public float positionX;                                                     // Pooling Positions
+    public float positionZ;                                                     // Pooling Positions
 
     [Header("Explosion")]
     public float explosionForce;                                                // Forza dell'esplosione
     public float explosionRadius;                                               // Radius dell'esplosione
-    public float yCoordinates;                                                  // Spinta dell'esplosione (Y)
+    public float explosionJump;                                                 // Spinta dell'esplosione (Y)
 
     [Header("Audio and Volume")]
     public AudioClip crashSound;
     public float volume = 0.3f;
     private bool hasAudioTriggered;
 
-    [Header("(DEBUG)")]
+    [Header("DEBUG")]
     public bool isMoving = true;
+    public bool isParking;
 
     void Start () {
+
+        ParkingArea = GameObject.FindGameObjectWithTag("ParkingArea");          // Cerca l'oggetto con TAG "ParkingArea"
         Player = GameObject.FindGameObjectWithTag("Player");                    // Cerca l'oggetto con TAG "Player"
+
         source = GetComponent<AudioSource>();
+
+        isParking = false;
 
 	}
 
@@ -64,7 +73,7 @@ public class IA : MonoBehaviour {
 
         if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Objects") && !hasAudioTriggered)
         {
-            GM.comboHit++; // Aumenta la combo di 1
+            gameManager.comboHit++; // Aumenta la combo di 1
             hasAudioTriggered = true;
             source.PlayOneShot(crashSound, volume);
         }
@@ -78,15 +87,21 @@ public class IA : MonoBehaviour {
 
             if (directions == Directions.Vertical && isMoving)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - spawnPosition);
+                transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
 
             }
 
             if (directions == Directions.Horizontal && isMoving)
             {
-                transform.position = new Vector3(transform.position.x - spawnPosition, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
             }
 
+        }
+
+        if(other.gameObject.tag == "ParkingArea")
+        {
+            isParking = true;
+            // Parcheggia la limousine
         }
 
 
@@ -94,7 +109,6 @@ public class IA : MonoBehaviour {
 
     IEnumerator Crash()
     {
-
 
         yield return new WaitForSeconds(0.1f);
         isMoving = false;
@@ -111,7 +125,7 @@ public class IA : MonoBehaviour {
         {
             childs[i].gameObject.AddComponent<Rigidbody>();
             childs[i].parent = null;
-            childs[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, yCoordinates, ForceMode.Impulse);
+            childs[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
         }
     }
 

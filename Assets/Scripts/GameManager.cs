@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     private AudioSource source;
     public GameObject Player;                                               // GIOCATORE
+    public QuestManager questManager;
+    //public IA AImanager;
 
     [Space(10)]
     public Text countdownText;                                              // Testo del Countdown
@@ -98,23 +100,35 @@ public class GameManager : MonoBehaviour {
             comboNumberText.fontSize = 76;
         }
 
-        if (comboHit >= 6)
+        if (comboHit == 6)
         {
             comboText.text = ("Beastly Combo!!");
             comboNumberText.text = ("" + comboHit);
             comboNumberText.fontSize = 80;
         }
 
+        if (comboHit >= 7)
+        {
+            comboText.text = ("Maximum Combo!!");
+            comboNumberText.text = ("" + comboHit);
+            comboNumberText.fontSize = 84;
+        }
+
         // Mostra il testo del Timer ed il tempo rimanente
 
-        countdownText.text = ("Time Left = " + timeLeft);
+        countdownText.text = ("" + timeLeft);
 
         results.text = ("Time: " + timeLeft + " - Collectables: " + collectables + " - Combo: " + comboHit);
+
+        if(timeLeft <= 10)
+        {
+            countdownText.color = Color.red;
+        }
 
         if (timeLeft <= 0)
         {
             StopCoroutine("Countdown");
-            countdownText.text = "Your time: " + timeLeft;
+            countdownText.text = "" + timeLeft;
             StartCoroutine("LOSER");
         }
 
@@ -143,7 +157,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    // HUD ELEMENTS
+    // HUD HIDE ELEMENTS
 
     public void HUDhide()
     {
@@ -151,6 +165,9 @@ public class GameManager : MonoBehaviour {
         collectableText.enabled = false;
         comboText.enabled = false;
         countdownText.enabled = false;
+        questManager.mainDescription.enabled = false;
+        questManager.secondDescription.enabled = false;
+        questManager.thirdDescription.enabled = false;
     }
 
     // START GAME
@@ -160,10 +177,17 @@ public class GameManager : MonoBehaviour {
         // Inizializza le animazioni dell'HUD
 
         yield return new WaitForSeconds(2);
+        //questManager.mainDescription.DOFade(0, 1);
         fadeImage.DOFade(0, 1);
         collectableText.enabled = true;
         comboText.enabled = true;
         countdownText.enabled = true;
+
+        // Quest Manager - Abilita i testi
+
+        questManager.mainDescription.enabled = true;
+        questManager.secondDescription.enabled = true;
+        questManager.thirdDescription.enabled = true;
 
         // Inizializza l'audio
 
@@ -203,7 +227,14 @@ public class GameManager : MonoBehaviour {
         countdownText.DOFade(0, 1);
         collectableText.DOFade(0, 1);
         comboText.DOFade(0, 1);
+        comboNumberText.DOFade(0, 1);
         reverseText.DOFade(0, 1);
+
+        // Quest Manager - Manda in fade i testi
+
+        questManager.mainDescription.DOFade(0, 1);
+        questManager.secondDescription.DOFade(0, 1);
+        questManager.thirdDescription.DOFade(0, 1);
 
         yield return new WaitForSeconds(3);
 
@@ -234,13 +265,20 @@ public class GameManager : MonoBehaviour {
 
         StopCoroutine("Countdown");
 
-        yield return new WaitForSeconds(8);                                             // Tempo da dare agli incidenti
-
+        yield return new WaitForSeconds(10);                                             // Tempo da dare agli incidenti
+       
         fadeImage.DOFade(1, 0.5f);
         countdownText.DOFade(0, 0.5f);
         comboText.DOFade(0, 0.5f);
+        comboNumberText.DOFade(0, 0.5f);
         collectableText.DOFade(0, 0.5f);
         reverseText.DOFade(0, 0.5f);
+
+        // Quest Manager - Manda in fade i testi
+
+        questManager.mainDescription.DOFade(0, 0.5f);
+        questManager.secondDescription.DOFade(0, 0.5f);
+        questManager.thirdDescription.DOFade(0, 0.5f);
 
         yield return new WaitForSeconds(1);
 

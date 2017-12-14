@@ -5,7 +5,7 @@ using UnityEngine;
 public class Accappottamento : MonoBehaviour {
 
 
-    public GameManager GM;                                                      // Get the Game Manager Component
+    public GameManager gameManager;                                                      // Get the Game Manager Component
 
     private CarController CC;                                                   // Get the CarController Script
 
@@ -20,7 +20,7 @@ public class Accappottamento : MonoBehaviour {
         if (other.gameObject.tag == "Plane")
         {
             CC.isActive = false;                                                
-            StartCoroutine(GM.LOSER());                                         
+            StartCoroutine(gameManager.LOSER());                                         
         }
     }
 }
