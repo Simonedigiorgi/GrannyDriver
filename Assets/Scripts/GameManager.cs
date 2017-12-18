@@ -40,17 +40,19 @@ public class GameManager : MonoBehaviour {
     [Space(10)]
     public Button quitGame;
     public Button restartGame;
+    public Button mainMenu;
 
     [Space(10)]
     public AudioClip carEngineSound;
     public AudioClip musicSound;
     public float volume = 0.3f;
-    [HideInInspector] public int IAParkingTime = 0;                            // L'IA sta parcheggiando
+    [HideInInspector] public int IAParkingTime = 0;                         // L'IA ha parcheggiato
+    public bool isIAParkingTrue;
 
 
     [Header("DEBUG")]
-    public bool isMusicActive;
-    public bool isStopAllIA;
+    public bool isMusicActive;                                              // Attiva la Musica (DEBUG)
+    public bool isStopAllIA;                                                // Setta la speed dell'IA su 0
 
 
     void Start () {
@@ -61,9 +63,13 @@ public class GameManager : MonoBehaviour {
 
         fadeImage.enabled = true;                                           // Attiva l'immagine del fade
         StartCoroutine("STARTGAME");                                        // Coroutine "STARTGAME", inizializza anche la couroutine del Timer
+
+
     }
 	
 	void Update () {
+
+        #region Activate Music
 
         if (isMusicActive)
         {
@@ -73,51 +79,22 @@ public class GameManager : MonoBehaviour {
         {
             source.enabled = false;
         }
+        #endregion
 
         #region Combo System
 
-        if (comboHit == 2)
+        if (comboHit >= 2)
         {
             comboText.transform.DOMoveX(94, 0.3f);
             comboText.text = (" x" + comboHit);
         }
-
-        if (comboHit == 3)
-        {
-            comboText.text = (" x" + comboHit);
-        }
-
-        if (comboHit == 4)
-        {
-            comboText.text = (" x" + comboHit);
-        }
-
-        if (comboHit == 5)
-        {
-            comboText.text = (" x" + comboHit);
-        }
-
-        if (comboHit == 6)
-        {
-            comboText.text = (" x" + comboHit);
-        }
-
-        if (comboHit >= 7)
-        {
-            comboText.text = ("x" + comboHit);
-        }
         #endregion
 
-
-        // Mostra il testo del Timer ed il tempo rimanente
-
-        accidentText.text = ("" + accidentTime);
+        #region Countdown
 
         countdownText.text = ("" + timeLeft);
 
-        results.text = ("Time: " + timeLeft + "  Collectables: " + collectables + "  Combo: " + comboHit);
-
-        if(timeLeft <= 10)
+        if (timeLeft <= 10)
         {
             countdownText.color = Color.red;
         }
@@ -128,14 +105,19 @@ public class GameManager : MonoBehaviour {
             countdownText.text = "" + timeLeft;
             StartCoroutine("LOSER");
         }
+        #endregion
 
-        if(accidentTime <= 0)
+        #region Accidents
+
+        accidentText.text = ("" + accidentTime);
+
+        if (accidentTime <= 0)
         {
             StopCoroutine("AccidentCountdown");
             accidentText.text = "0";
             StartCoroutine("LOSER");
         }
-
+        #endregion
 
         // Mostra il testo dei Collezionabili
 
@@ -149,14 +131,15 @@ public class GameManager : MonoBehaviour {
             StartCoroutine("VICTORY");
         }
 
+        // Risultati Partita
 
+        results.text = ("Time: " + timeLeft + "  Collectables: " + collectables + "  Combo: " + comboHit);
     }
 
     #region Coroutines
 
     IEnumerator Countdown()
     {
-
         while (true)
         {
             yield return new WaitForSeconds(1);
@@ -205,24 +188,11 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(2);
         fadeImage.enabled = true;
         fadeImage.DOFade(1, 1);
-        yield return new WaitForSeconds(3);
-        yield return new WaitForSeconds(2);
-        //restartGame.enabled = true;
-        //quitGame.enabled = true;
 
     }
 
     public IEnumerator LOSER()
     {
-
-        /*yield return new WaitForSeconds(0.1f);
-        Player.GetComponent<CarController>().isActive = false;                          // Disattiva il Player
-        Player.GetComponent<CarController>().Acceleration = 0f;                         // Ferma l'accellerazione del Player
-        */
-       
-        //yield return new WaitForSeconds(12);                                            // Tempo da dare agli incidenti                                                              
-        //StopCoroutine("Countdown");                                                     // Ferma la coroutine del Timer
-
         yield return new WaitForSeconds(2);
         fadeImage.enabled = true;
         fadeImage.DOFade(1, 0.5f);
@@ -232,10 +202,6 @@ public class GameManager : MonoBehaviour {
         resultsTitleText.text = ("");
         resultsTitleText.transform.DOLocalMoveX(0, 1);
         yield return new WaitForSeconds(1);
-
-        //Time.timeScale = 0;
-        //restartGame.enabled = true;
-        //quitGame.enabled = true;
     }
 
     public IEnumerator RestartGame()
@@ -244,12 +210,26 @@ public class GameManager : MonoBehaviour {
         results.DOFade(0, 0.5f);
         quitGame.image.DOFade(0, 0.5f);
         restartGame.image.DOFade(0, 0.5f);
+        mainMenu.image.DOFade(0, 0.5f);
         fadeImage.DOFade(1, 0.5f);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Main");
     }
 
+    public IEnumerator MainMenu()
+    {
+        fadeImage.enabled = true;
+        results.DOFade(0, 0.5f);
+        quitGame.image.DOFade(0, 0.5f);
+        restartGame.image.DOFade(0, 0.5f);
+        mainMenu.image.DOFade(0, 0.5f);
+        fadeImage.DOFade(1, 0.5f);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Menu");
+    }
     #endregion
+
+    #region HUD OnClick
 
     public void QuitGame()
     {
@@ -260,5 +240,11 @@ public class GameManager : MonoBehaviour {
     {
         StartCoroutine(RestartGame());
     }
+
+    public void Menu()
+    {
+        StartCoroutine(MainMenu());
+    }
+    #endregion
 
 }

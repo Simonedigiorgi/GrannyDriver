@@ -107,7 +107,6 @@ public class QuestManager : MonoBehaviour
             mainDescription.text = ("Raccogli tutti i collezionabili");
             mainDescription.color = Color.red;
         }
-
     }
 
     public void Mission2()                                                                // Mission (2)
@@ -117,7 +116,7 @@ public class QuestManager : MonoBehaviour
         //mainTitle.text = ("");
         mainDescription.text = ("Parcheggiati sulla Piscina");
 
-        if (carController.PlayerParkingTime >= 5)
+        if (carController.isParkingTrue == true)
         {
             isCompleted = true;
         }
@@ -167,9 +166,9 @@ public class QuestManager : MonoBehaviour
         bool isCompleted;
 
         //thirdTitle.text = ("");
-        thirdDescription.text = ("Parcheggia la Limousine sul tetto");
+        thirdDescription.text = ("Parcheggia la Limousine sulla piscina");
 
-        if (gameManager.IAParkingTime >= 5)
+        if (gameManager.isIAParkingTrue == true)
         {
             isCompleted = true;
         }
@@ -180,7 +179,7 @@ public class QuestManager : MonoBehaviour
 
         if (isCompleted)
         {
-            thirdDescription.text = ("Parcheggia la Limousine sul tetto");
+            thirdDescription.text = ("Parcheggia la Limousine sulla piscina");
             thirdDescription.color = Color.red;
         }
 

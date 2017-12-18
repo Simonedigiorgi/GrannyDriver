@@ -36,15 +36,16 @@ public class CarController : MonoBehaviour
     public AudioClip BrakesAudio;
 
     [Space(10)]
-    public float volume = 0.3f;                                             // Modifica il volume dell'audio
+    public float generalVolume = 0.3f;                                      // Modifica il volume generale
 
     [Header("(DEBUG)")]
     public bool isActive;                                                   // Il Player è attivo  
-    public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
-    public bool isPlayerParking;
-    [SerializeField] public int PlayerParkingTime = 0;                     // Il Player sta parcheggiando
-
     [SerializeField] public float Acceleration = 0.0f;                      // Mostra l'accellerazione
+
+    public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
+    public bool isPlayerParking;                                            // Lasciare attivo per attivare l'obbiettivo parcheggiati
+    public bool isParkingTrue;                                              // Il Player ha parcheggiato
+
 
     void Start()
     {
@@ -68,43 +69,17 @@ public class CarController : MonoBehaviour
 
         if (Acceleration > MaxSpeed && isGrannyDriving == true)
         {
-            //isMad = true;
-
-            if(randomNumber == 0)
-            {
-                
+            if(randomNumber == 0)                                           // randomNumber 0 corrisponde alla direzione Sinistra
+            {               
                 transform.Rotate(Vector3.down * 5);
             }
             else
             {
                 transform.Rotate(Vector3.up * 5);
             }
-
-        }
-        else
-        {
-            
-            //isMad = false;
-
         }
         #endregion
 
-        //Debug.Log(PlayerParkingTime);
-
-        /*if(isOnGround == false)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.Translate(Vector3.forward * 5 * Time.deltaTime);
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.Translate(Vector3.back * 5 * Time.deltaTime);
-            }
-
-
-        }*/
     }
 
     void FixedUpdate()
@@ -115,52 +90,47 @@ public class CarController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) && gameManager.reverseText.enabled == false)
             {
-                StartAccelleration(1);              //Accelerate in forward direction
-
+                StartAccelleration(1);                                      // Accelera in direzione Forward
             }
 
             else if (Input.GetKey(KeyCode.S) && gameManager.reverseText.enabled == true)
             {
-                StartAccelleration(-1);             //Accelerate in backward direction
+                StartAccelleration(-1);                                     // Accelera in direzione Backward
             }
 
             else if (Input.GetKey(KeyCode.Space))
             {
                 if (AccellerationForward)
                 {
-                    StopAccelleration(1, Break);    //Breaks while in forward direction
+                    StopAccelleration(1, Break);                            // Frena nella direzione Forward
                 }
 
                 else if (AccellerationBackwards)
                 {
-                    StopAccelleration(-1, Break);   //Breaks while in backward direction
+                    StopAccelleration(-1, Break);                           // Frena nella direzione Backward
                 }
             }
             else
             {
                 if (AccellerationForward)
                 {
-                    StopAccelleration(1, accellerationBrakes);                      //Applies breaks slowly if no key is pressed while in forward direction
+                    StopAccelleration(1, accellerationBrakes);              //Applies breaks slowly if no key is pressed while in forward direction
                 }
 
                 else if (AccellerationBackwards)
                 {
-                    StopAccelleration(-1, accellerationBrakes);                     //Applies breaks slowly if no key is pressed while in backward direction
+                    StopAccelleration(-1, accellerationBrakes);             //Applies breaks slowly if no key is pressed while in backward direction
                 }
-
             }
-
-
         }
         #endregion
-
     }
 
     #region Start Acceleration
 
     public void StartAccelleration(int Direction)
     {
-        if (Direction == 1)
+        if (Direction == 1)                                           // Direzione Forward
         {
             AccellerationForward = true;
 
@@ -169,21 +139,18 @@ public class CarController : MonoBehaviour
                 Acceleration += accellerationSpeed;
             }
 
-
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(Vector3.down * Steer);              //Steer left
+                transform.Rotate(Vector3.down * Steer);               // Sterza a Sinistra
             }
-
 
             if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(Vector3.up * Steer);                 //steer right
+                transform.Rotate(Vector3.up * Steer);                 // Sterza a Destra
             }
-
         }
 
-        else if (Direction == -1)
+        else if (Direction == -1)                                     // Direzione Backward
         {
             AccellerationBackwards = true;
 
@@ -195,13 +162,13 @@ public class CarController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(Vector3.up * Steer);                 //Steer left (while in reverse direction)
+                transform.Rotate(Vector3.up * Steer);                 // Sterza a sinistra mentre sei in retromarcia
             }
 
 
             if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(Vector3.down * Steer);              //Steer left (while in reverse direction)
+                transform.Rotate(Vector3.down * Steer);              // Sterza a destra mentre sei in retromarcia
             }
 
        
@@ -283,14 +250,13 @@ public class CarController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        // stacca e applica forza alle ruote
-
-        if((collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
+        if ((collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
         {
+            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 20, 10, ForceMode.Impulse);
 
-            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 20, 10, ForceMode.VelocityChange);
+            // Se attivo stacca le ruote dall'auto
 
-            List<Transform> childs = new List<Transform>();
+            /*List<Transform> childs = new List<Transform>();
 
             childs.Add(transform.GetChild(0));
             childs.Add(transform.GetChild(1));
@@ -302,9 +268,12 @@ public class CarController : MonoBehaviour
             {
                 childs[i].gameObject.AddComponent<Rigidbody>();
                 childs[i].parent = null;
+
+                // Attivare per applicare forza alle ruote una volta staccate
+
                 //childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10, ForceMode.Impulse);
 
-            }                                                        
+            }*/                                                    
 
             // Inizializza coroutine
 
@@ -318,34 +287,17 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
-    IEnumerator PlayerParkingCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            PlayerParkingTime++;
-            Debug.Log(PlayerParkingTime);
-        }
-    }
+    #region On Trigger Enter
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ParkingArea" && isPlayerParking == true)
         {
-            StartCoroutine("PlayerParkingCoroutine");
+            //StartCoroutine("PlayerParkingCoroutine");
+            isParkingTrue = true;
         }
     }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "ParkingArea" && isPlayerParking == true)
-        {
-
-            StopCoroutine("PlayerParkingCoroutine");
-            PlayerParkingTime = 0;
-
-        }
-    }
+    #endregion
 
     #region Methods
 
@@ -354,6 +306,5 @@ public class CarController : MonoBehaviour
         randomNumber = Random.Range(0, 2);
     }
     #endregion
-
 
 }

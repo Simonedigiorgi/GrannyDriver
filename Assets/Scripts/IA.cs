@@ -7,12 +7,12 @@ public class IA : MonoBehaviour {
 
     public enum Directions { Horizontal, Vertical }
 
-    private GameObject Player;
-    public GameManager gameManager;
-    public QuestManager questManager;
+    private GameObject Player;                                                  // GIOCATORE
+    public GameManager gameManager;                                             // GAME MANAGER
+    public QuestManager questManager;                                           // QUEST MANAGER
 
     private AudioSource source;
-    private Rigidbody rb;
+    private Rigidbody rb;                                                       
 
     [Header("Directions and Speed")]
     public Directions directions;
@@ -28,16 +28,16 @@ public class IA : MonoBehaviour {
     public float explosionJump;                                                 // Spinta dell'esplosione (Y)
 
     [Header("Audio and Volume")]
-    public AudioClip crashSound;
+    public AudioClip crashSound;                                                // Suono dell'incidente
     public AudioClip hornSound;                                                 // Suono del clacson
-    public float volume = 0.3f;
+    public float generalVolume = 0.3f;                                          // Volume generale
     private bool hasAudioTriggered;
-    public bool isHornActive;
+    public bool isHornActive;                                                   // Suona il clacson quando ha un incidente
 
     [Header("DEBUG")]
-    public bool isActive = true;                                                      // E' l'oggetto attivo?
+    public bool isActive = true;                                                // E' l'oggetto attivo?
     [TextArea]
-    public string infoIsParking = "Quando isParking è attivo se l'auto si trova nella ParkingArea inizializza un int nel GameManager chiamato ParkingTime, se ParkingTime è >= 5 allora attiva la fine della quest su QuestManager";
+    public string infoIsParking = "Quando isIAParking è attivo se l'auto si trova nella ParkingArea inizializza un bool nel GameManager chiamato isIAParkingTrue, se isIAParkingTrue == True allora attiva la fine della quest su QuestManager";
     public bool isIAParking;
     public bool isFirstImpact = true;
 
@@ -45,8 +45,6 @@ public class IA : MonoBehaviour {
 
         Player = GameObject.Find("Player");                                     // Cerca l'oggetto con TAG "Player"
         source = GetComponent<AudioSource>();
-
-
 	}
 
     private void Update()
@@ -63,19 +61,11 @@ public class IA : MonoBehaviour {
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        #endregion
-
-        /*#region Parking                                                         
-
-        if(gameManager.IAParkingTime >= 5)
-        {
-            Debug.Log("Limo su Piscina");
-        }
-        #endregion  */                                                               
+        #endregion                                                              
 
         if(gameManager.isStopAllIA == true)
         {
-            StopCars();
+            speed = 0;
         }
     }
 
@@ -90,13 +80,13 @@ public class IA : MonoBehaviour {
 
         if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !hasAudioTriggered)
         {
-            gameManager.comboHit++; // Aumenta la combo di 1
+            gameManager.comboHit++;                                                 // Aumenta la combo di 1
             hasAudioTriggered = true;
-            source.PlayOneShot(crashSound, volume);
+            source.PlayOneShot(crashSound, generalVolume);
 
-            if (isHornActive)       // Suona il clacson?
+            if (isHornActive)                                                       // Suona il clacson?
             {
-                source.PlayOneShot(hornSound, volume);
+                source.PlayOneShot(hornSound, generalVolume);
             }
         }
 
@@ -130,21 +120,9 @@ public class IA : MonoBehaviour {
 
         if (other.gameObject.tag == "ParkingArea" && isIAParking == true)
         {
-            StartCoroutine(IAParkingCoroutine());
+            gameManager.isIAParkingTrue = true;
         }
 
-    }
-    #endregion
-
-    #region On Trigger Exit
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "ParkingArea" && isIAParking == true)
-        {
-            StopCoroutine(IAParkingCoroutine());
-            gameManager.IAParkingTime = 0;
-        }
     }
     #endregion
 
@@ -158,6 +136,8 @@ public class IA : MonoBehaviour {
 
 
         isFirstImpact = false;
+
+        // Se attivo stacca le ruote dall'auto
 
         /*List<Transform> childs = new List<Transform>();
 
@@ -175,25 +155,9 @@ public class IA : MonoBehaviour {
     }
 
     IEnumerator CrashWithoutExplosionForce()
-    {
-        //GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
+    {       
         yield return new WaitForSeconds(0.1f);
         isActive = false;
-
-    }
-
-    IEnumerator IAParkingCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1);
-            gameManager.IAParkingTime++;
-        }
     }
     #endregion
-
-    public void StopCars()
-    {
-        speed = 0;
-    }
 }
