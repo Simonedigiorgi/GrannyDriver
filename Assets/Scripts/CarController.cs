@@ -34,6 +34,7 @@ public class CarController : MonoBehaviour
     public AudioClip grannyAudio1;
     public AudioClip grannyAudio2;
     public AudioClip BrakesAudio;
+    public AudioClip CrashAudio;
 
     [Space(10)]
     public float generalVolume = 0.3f;                                      // Modifica il volume generale
@@ -77,7 +78,7 @@ public class CarController : MonoBehaviour
             {
                 transform.Rotate(Vector3.up * 5);
             }
-        }
+        }        
         #endregion
 
     }
@@ -130,7 +131,7 @@ public class CarController : MonoBehaviour
 
     public void StartAccelleration(int Direction)
     {
-        if (Direction == 1)                                           // Direzione Forward
+        if (Direction == 1)                                                 // Direzione Forward
         {
             AccellerationForward = true;
 
@@ -141,16 +142,16 @@ public class CarController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(Vector3.down * Steer);               // Sterza a Sinistra
+                transform.Rotate(Vector3.down * Steer);                     // Sterza a Sinistra
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(Vector3.up * Steer);                 // Sterza a Destra
+                transform.Rotate(Vector3.up * Steer);                       // Sterza a Destra
             }
         }
 
-        else if (Direction == -1)                                     // Direzione Backward
+        else if (Direction == -1)                                           // Direzione Backward
         {
             AccellerationBackwards = true;
 
@@ -162,13 +163,13 @@ public class CarController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(Vector3.up * Steer);                 // Sterza a sinistra mentre sei in retromarcia
+                transform.Rotate(Vector3.up * Steer);                       // Sterza a sinistra mentre sei in retromarcia
             }
 
 
             if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(Vector3.down * Steer);              // Sterza a destra mentre sei in retromarcia
+                transform.Rotate(Vector3.down * Steer);                     // Sterza a destra mentre sei in retromarcia
             }
 
        
@@ -250,9 +251,11 @@ public class CarController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
+        if ((collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
         {
             GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 20, 10, ForceMode.Impulse);
+
+            #region Stacca le ruote
 
             // Se attivo stacca le ruote dall'auto
 
@@ -273,16 +276,29 @@ public class CarController : MonoBehaviour
 
                 //childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10, ForceMode.Impulse);
 
-            }*/                                                    
+            }*/
+            #endregion
 
             // Inizializza coroutine
 
-            source.PlayOneShot(grannyAudio1);
+            source.PlayOneShot(grannyAudio1, generalVolume);
+
             StartCoroutine(gameManager.AccidentCountdown());
             isCrashsnd = true;
         }
 
+        if ((collision.gameObject.tag == "Buildings") && !isCrashsnd)
+        {
+            GetComponent<Rigidbody>().AddExplosionForce(5, transform.position, 5, 10, ForceMode.Impulse);
 
+            source.PlayOneShot(CrashAudio, generalVolume);
+            source.PlayOneShot(grannyAudio1, generalVolume);
+
+            // Inizializza coroutine
+
+            StartCoroutine(gameManager.AccidentCountdown());
+            isCrashsnd = true;
+        }
 
     }
     #endregion
@@ -293,8 +309,12 @@ public class CarController : MonoBehaviour
     {
         if (other.gameObject.tag == "ParkingArea" && isPlayerParking == true)
         {
-            //StartCoroutine("PlayerParkingCoroutine");
             isParkingTrue = true;
+        }
+
+        if (other.gameObject.tag == "Corner")
+        {
+            StartCoroutine(gameManager.LOSER());
         }
     }
     #endregion

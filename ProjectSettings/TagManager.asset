@@ -13,6 +13,8 @@ TagManager:
   - ParkingArea
   - Environment
   - CarTraffic
+  - Corner
+  - Buildings
   layers:
   - Default
   - TransparentFX

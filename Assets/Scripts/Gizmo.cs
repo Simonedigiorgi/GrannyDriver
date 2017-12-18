@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Gizmo : MonoBehaviour {
 
-	// Use this for initialization
+    public Vector3 size;                                                                    // The Gizmo size
+
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        //Gizmos.DrawWireCube(transform.position, Vector3.one);
-        Gizmos.DrawWireCube(transform.position, new Vector3(15,10,15));
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, size);
     }
 }

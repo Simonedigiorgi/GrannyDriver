@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour {
     {
         resultsTitleText.text = ("Well Done!!");
         resultsTitleText.transform.DOLocalMoveX(0, 1);
-        Player.GetComponent<CarController>().enabled = false;                            // disabilita il Player
+        Player.GetComponent<CarController>().enabled = false;                            // Disabilita il Player
         yield return new WaitForSeconds(2);
         fadeImage.enabled = true;
         fadeImage.DOFade(1, 1);

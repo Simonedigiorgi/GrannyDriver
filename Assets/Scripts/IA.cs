@@ -78,7 +78,7 @@ public class IA : MonoBehaviour {
             StartCoroutine("Crash");
         }
 
-        if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !hasAudioTriggered)
+        if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Buildings" || collision.gameObject.tag == "CarTraffic") && !hasAudioTriggered)
         {
             gameManager.comboHit++;                                                 // Aumenta la combo di 1
             hasAudioTriggered = true;
@@ -90,7 +90,7 @@ public class IA : MonoBehaviour {
             }
         }
 
-        if (collision.gameObject.tag == "Objects")
+        if (collision.gameObject.tag == "Buildings")
         {
             StartCoroutine("CrashWithoutExplosionForce");
         }
@@ -130,10 +130,9 @@ public class IA : MonoBehaviour {
 
     IEnumerator Crash()
     {
-        GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
         yield return new WaitForSeconds(0.1f);
         isActive = false;
-
 
         isFirstImpact = false;
 

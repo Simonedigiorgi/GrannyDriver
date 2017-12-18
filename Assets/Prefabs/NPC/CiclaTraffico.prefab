@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4501681981667556}
   - component: {fileID: 65050729244891560}
+  - component: {fileID: 114331745005712112}
   m_Layer: 0
   m_Name: CiclaTraffico
   m_TagString: Traffico
@@ -34,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203026276814810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 5, z: 76.9}
-  m_LocalScale: {x: 168.37, y: 10, z: 5}
+  m_LocalPosition: {x: -18, y: 5, z: 112.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,3 +53,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114331745005712112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1203026276814810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f88bec5d73cd6e449362f499cc52382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 10, y: 5, z: 10}
