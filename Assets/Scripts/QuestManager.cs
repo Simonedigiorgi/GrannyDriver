@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
     public enum ThirdMission { None, Third1, Third2, Third3 }
 
     public GameManager gameManager;
+    public CarController carController;
 
 
     public MainMission mainMissions;
@@ -50,6 +51,12 @@ public class QuestManager : MonoBehaviour
         {
             Mission1();
         }
+
+        if (mainMissions == MainMission.Main2)
+        {
+            Mission2();
+        }
+
 
         // SECOND MISSION CONDITIONS
 
@@ -103,6 +110,30 @@ public class QuestManager : MonoBehaviour
 
     }
 
+    public void Mission2()                                                                // Mission (2)
+    {
+        bool isCompleted;
+
+        //mainTitle.text = ("");
+        mainDescription.text = ("Parcheggiati sulla Piscina");
+
+        if (carController.PlayerParkingTime >= 5)
+        {
+            isCompleted = true;
+        }
+        else
+        {
+            isCompleted = false;
+        }
+
+        if (isCompleted)
+        {
+            mainDescription.text = ("Parcheggiati sulla Piscina");
+            mainDescription.color = Color.red;
+        }
+
+    }
+
     // SECONDARY MISSIONS
 
     public void Secondary1()                                                                // Secondary (1)
@@ -133,12 +164,12 @@ public class QuestManager : MonoBehaviour
 
     public void Third1()                                                                    // Third (1)
     {
-        //bool isCompleted;
+        bool isCompleted;
 
         //thirdTitle.text = ("");
         thirdDescription.text = ("Parcheggia la Limousine sul tetto");
 
-        /*if (gameManager.comboHit >= 7)
+        if (gameManager.IAParkingTime >= 5)
         {
             isCompleted = true;
         }
@@ -151,7 +182,7 @@ public class QuestManager : MonoBehaviour
         {
             thirdDescription.text = ("Parcheggia la Limousine sul tetto");
             thirdDescription.color = Color.red;
-        }*/
+        }
 
     }
 

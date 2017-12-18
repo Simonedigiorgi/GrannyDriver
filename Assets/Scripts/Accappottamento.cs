@@ -16,8 +16,8 @@ public class Accappottamento : MonoBehaviour {
     {
         if (other.gameObject.tag == "Plane")
         {
-            carController.isActive = false;                                                
-            StartCoroutine(gameManager.LOSER());                                         
+            carController.isActive = false;
+            //StartCoroutine(gameManager.AccidentCountdown());                                         
         }
     }
 }

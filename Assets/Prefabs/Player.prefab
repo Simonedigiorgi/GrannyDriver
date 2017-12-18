@@ -171,8 +171,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382935698490460}
-  m_LocalRotation: {x: 0, y: 0.41937286, z: 0, w: 0.9078141}
-  m_LocalPosition: {x: -49.8, y: 0.5, z: -8.7}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -56.7, y: 0.5, z: -12.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862829528208582}
@@ -183,7 +183,7 @@ Transform:
   - {fileID: 4483756900634354}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 49.59, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4483756900634354
 Transform:
   m_ObjectHideFlags: 1
@@ -445,7 +445,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382935698490460}
   serializedVersion: 2
-  m_Mass: 8
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -592,21 +592,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  accellerationSpeed: 0.4
+  decellerationSpeed: 0.4
   MaxSpeed: 15
-  MaxSteer: 4
-  Breaks: 0.2
-  Acceleration: 0
-  Steer: 1
-  accSpeed: 0.4
-  decSpeed: 0.4
   steerSpeed: 0.06
-  accBrake: 0.4
+  Steer: 1
+  MaxSteer: 4
+  accellerationBrakes: 0.4
+  Break: 0.2
+  isOnGround: 0
+  grannyAudio1: {fileID: 8300000, guid: e149588d6633a4a459bbbdf9ca5d0b50, type: 3}
+  grannyAudio2: {fileID: 8300000, guid: 353ae04b48f04c5408a7b2f6a346ca66, type: 3}
+  BrakesAudio: {fileID: 8300000, guid: c592a7da0016d944db3561002a5de7c4, type: 3}
+  volume: 0.3
   isActive: 0
   isGrannyDriving: 1
-  isOnGround: 0
-  VoiceCrash: {fileID: 8300000, guid: e149588d6633a4a459bbbdf9ca5d0b50, type: 3}
-  VoiceCrash2: {fileID: 8300000, guid: 353ae04b48f04c5408a7b2f6a346ca66, type: 3}
-  Brakes: {fileID: 8300000, guid: a45e736b6d28bf242807c7e268e9ea46, type: 3}
+  isPlayerParking: 1
+  PlayerParkingTime: 0
+  Acceleration: 0
 --- !u!114 &114269854227145704
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 
 public class CarController : MonoBehaviour
 {
@@ -25,8 +24,7 @@ public class CarController : MonoBehaviour
     bool AccellerationBackwards;
     bool SteerLeft;
     bool SteerRight;
-                                  
-    bool isMad;                                                             // E' in guida spericolata                
+           
     int randomNumber;                                                       // Direzioni della guida spericolata
 
     private bool isCrashsnd;                                                // Has sound crash triggered? (bool that trigger only ONE time)
@@ -43,30 +41,27 @@ public class CarController : MonoBehaviour
     [Header("(DEBUG)")]
     public bool isActive;                                                   // Il Player è attivo  
     public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
-    public bool isWearingGlasses = true;                                    // Mostra i testi nella sua grandezza reale
+    public bool isPlayerParking;
+    [SerializeField] public int PlayerParkingTime = 0;                     // Il Player sta parcheggiando
 
-    [SerializeField] public float Acceleration = 0.0f;                      // Accellerazione
+    [SerializeField] public float Acceleration = 0.0f;                      // Mostra l'accellerazione
 
     void Start()
     {
-
         source = GetComponent<AudioSource>();
         isActive = true;                                                    // Attiva il Player
-        InvokeRepeating("RandomDirection", 0, 0.3f);                        // Richiama la RandomDirection e sceglie una direzione casuale
+        InvokeRepeating("RandomDirection", 0, 0.3f);                        // Richiama il metodo RandomDirection e sceglie una direzione casuale
     }
 
     private void Update()
     {
         #region Retromarcia
 
-        if (Input.GetKeyDown(KeyCode.R) && gameManager.reverseText.enabled == false)
+        if (Input.GetKeyUp(KeyCode.R))                                     // Toggle della Retromarcia
         {
-            gameManager.reverseText.enabled = true;
+            gameManager.reverseText.enabled = !gameManager.reverseText.enabled;
         }
-        else if (Input.GetKeyDown(KeyCode.R) && gameManager.reverseText.enabled == true)
-        {
-            gameManager.reverseText.enabled = false;
-        }
+
         #endregion
 
         #region Granny Driving
@@ -94,6 +89,22 @@ public class CarController : MonoBehaviour
         }
         #endregion
 
+        //Debug.Log(PlayerParkingTime);
+
+        /*if(isOnGround == false)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * 5 * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Translate(Vector3.back * 5 * Time.deltaTime);
+            }
+
+
+        }*/
     }
 
     void FixedUpdate()
@@ -159,13 +170,13 @@ public class CarController : MonoBehaviour
             }
 
 
-            if (Input.GetKey(KeyCode.A) && !isMad)
+            if (Input.GetKey(KeyCode.A))
             {
                 transform.Rotate(Vector3.down * Steer);              //Steer left
             }
 
 
-            if (Input.GetKey(KeyCode.D)  && !isMad)
+            if (Input.GetKey(KeyCode.D))
             {
                 transform.Rotate(Vector3.up * Steer);                 //steer right
             }
@@ -182,13 +193,13 @@ public class CarController : MonoBehaviour
             }
 
 
-            if (Input.GetKey(KeyCode.A) && !isMad)
+            if (Input.GetKey(KeyCode.A))
             {
                 transform.Rotate(Vector3.up * Steer);                 //Steer left (while in reverse direction)
             }
 
 
-            if (Input.GetKey(KeyCode.D) && !isMad)
+            if (Input.GetKey(KeyCode.D))
             {
                 transform.Rotate(Vector3.down * Steer);              //Steer left (while in reverse direction)
             }
@@ -215,13 +226,13 @@ public class CarController : MonoBehaviour
             {
                 Acceleration -= BreakingFactor;
 
-                if (Input.GetKey(KeyCode.A) && !isMad)
+                if (Input.GetKey(KeyCode.A))
                 {
                     transform.Rotate(Vector3.down * Steer);
                 }
 
 
-                if (Input.GetKey(KeyCode.D) && !isMad)
+                if (Input.GetKey(KeyCode.D))
                 {
                     transform.Rotate(Vector3.up * Steer);
                 }
@@ -239,13 +250,13 @@ public class CarController : MonoBehaviour
             {
                 Acceleration += BreakingFactor;
 
-                if (Input.GetKey(KeyCode.A) && !isMad)
+                if (Input.GetKey(KeyCode.A))
                 {
                     transform.Rotate(Vector3.up * Steer);
 
                 }
 
-                if (Input.GetKey(KeyCode.D) && !isMad)
+                if (Input.GetKey(KeyCode.D))
                 {
                     transform.Rotate(Vector3.down * Steer);
 
@@ -274,8 +285,11 @@ public class CarController : MonoBehaviour
     {
         // stacca e applica forza alle ruote
 
-        if(collision.gameObject.tag == "Objects" && !isCrashsnd)
+        if((collision.gameObject.tag == "Objects" || collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
         {
+
+            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 20, 10, ForceMode.VelocityChange);
+
             List<Transform> childs = new List<Transform>();
 
             childs.Add(transform.GetChild(0));
@@ -288,13 +302,14 @@ public class CarController : MonoBehaviour
             {
                 childs[i].gameObject.AddComponent<Rigidbody>();
                 childs[i].parent = null;
-                childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10 ,ForceMode.VelocityChange);
+                //childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10, ForceMode.Impulse);
+
             }                                                        
 
             // Inizializza coroutine
 
             source.PlayOneShot(grannyAudio1);
-            StartCoroutine(gameManager.LOSER());
+            StartCoroutine(gameManager.AccidentCountdown());
             isCrashsnd = true;
         }
 
@@ -303,9 +318,42 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+    IEnumerator PlayerParkingCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            PlayerParkingTime++;
+            Debug.Log(PlayerParkingTime);
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ParkingArea" && isPlayerParking == true)
+        {
+            StartCoroutine("PlayerParkingCoroutine");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "ParkingArea" && isPlayerParking == true)
+        {
+
+            StopCoroutine("PlayerParkingCoroutine");
+            PlayerParkingTime = 0;
+
+        }
+    }
+
+    #region Methods
+
     public void RandomDirection()
     {
         randomNumber = Random.Range(0, 2);
     }
+    #endregion
+
 
 }

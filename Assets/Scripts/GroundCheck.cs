@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour {
 
-    private CarController CC;
+    private CarController carController;
 
     void Start () {
-        CC = GetComponentInParent<CarController>();
+        carController = GetComponentInParent<CarController>();
     }
 	
     public void OnTriggerStay(Collider other)                                           // Il collider tocca il terreno
     {
         if (other.gameObject.tag == "Plane")
         {
-            CC.isOnGround = true;
+            carController.isOnGround = true;
         }
     }
 
@@ -22,7 +22,7 @@ public class GroundCheck : MonoBehaviour {
     {
         if (other.gameObject.tag == "Plane")
         {
-            CC.isOnGround = false;
+            carController.isOnGround = false;
         }
     }
 

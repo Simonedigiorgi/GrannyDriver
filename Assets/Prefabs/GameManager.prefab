@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 82046332298250636}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,10 +51,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9a699c4ee0f60ed4bab2b4c18644bf50, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -132,21 +132,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9415ef7d4f1b634898b9103f84bddec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  questManager: {fileID: 0}
   countdownText: {fileID: 0}
-  timeLeft: 500
+  accidentText: {fileID: 0}
+  timeLeft: 90
   bonusTime: 5
+  accidentTime: 20
   collectableText: {fileID: 0}
   collectables: 0
   comboText: {fileID: 0}
-  comboNumberText: {fileID: 0}
   comboHit: 0
   reverseText: {fileID: 0}
   resultsTitleText: {fileID: 0}
   results: {fileID: 0}
   fadeImage: {fileID: 0}
+  quitGame: {fileID: 0}
+  restartGame: {fileID: 0}
   carEngineSound: {fileID: 8300000, guid: f19cc551df670db4789900c0c00d7d2f, type: 3}
   musicSound: {fileID: 8300000, guid: 9a699c4ee0f60ed4bab2b4c18644bf50, type: 3}
-  isStartGame: 0
-  isLoser: 0
-  isYouWin: 0
+  volume: 0.3
+  parkingTime: 0
+  isStopAllIA: 0

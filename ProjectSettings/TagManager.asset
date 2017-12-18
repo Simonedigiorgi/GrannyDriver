@@ -11,6 +11,8 @@ TagManager:
   - GameManager
   - QuestManager
   - ParkingArea
+  - Environment
+  - CarTraffic
   layers:
   - Default
   - TransparentFX

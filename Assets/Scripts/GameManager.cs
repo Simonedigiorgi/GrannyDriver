@@ -8,16 +8,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     private AudioSource source;
-    public GameObject Player;                                               // GIOCATORE
-    public QuestManager questManager;
-
-
-    //public IA AImanager;
+    private GameObject Player;                                              // GIOCATORE
+    public QuestManager questManager;                                       // QUEST MANAGER
 
     [Space(10)]
     public Text countdownText;                                              // Testo del Countdown
+    public Text accidentText;
     public int timeLeft = 30;                                               // Tempo rimanente
     public int bonusTime = 0;                                               // Tempo Bonus
+    public int accidentTime = 20;                                           // Tempo per gli incidenti
 
     [Space(10)]
     public Text collectableText;                                            // Testo degli oggetti collezionati
@@ -25,103 +24,98 @@ public class GameManager : MonoBehaviour {
 
     [Space(10)]
     public Text comboText;                                                  // Testo degli incidenti
-    public Text comboNumberText;                                            // Testo del numero della combo
+    //public Text comboNumberText;                                          // Testo del numero della combo
     public int comboHit = 0;                                                // Ammontare della combo
-
 
     [Space(10)]
     public Text reverseText;                                                // Testo della Retromarcia
+
+    [Space(10)]
     public Text resultsTitleText;                                           // Testo della Vittoria
     public Text results;
 
     [Space(10)]    
-    public SpriteRenderer fadeImage;                                        // Immagine FADEIN/FADEOUT       
+    public Image fadeImage;                                                 // Immagine FADEIN/FADEOUT   
 
-    // AUDIO
+    [Space(10)]
+    public Button quitGame;
+    public Button restartGame;
 
-    private float volume = 0.3f;
-
+    [Space(10)]
     public AudioClip carEngineSound;
     public AudioClip musicSound;
+    public float volume = 0.3f;
+    [HideInInspector] public int IAParkingTime = 0;                            // L'IA sta parcheggiando
 
-    // Booleane per Coroutines
 
-    [Header("(DEBUG")]
-    public bool isStartGame;
-    public bool isLoser;
-    public bool isYouWin;
+    [Header("DEBUG")]
+    public bool isMusicActive;
+    public bool isStopAllIA;
+
 
     void Start () {
 
+        Player = GameObject.Find("Player");                                 // Cerca l'oggetto con TAG "Player"
+        Player.GetComponent<CarController>().enabled = false;               // Disabilita il Giocatore
         source = GetComponent<AudioSource>();
 
-
-        // Abilita/Disabilita Sprites e Testi
-
-        HUDhide();
-        fadeImage.enabled = true;
-
-        // Disabilita il Giocatore
-
-        Player.GetComponent<CarController>().enabled = false;
-
-        // Inizializza la coroutine,
-        //STARTGAME inizializza anche la couroutine del Timer
-
-        StartCoroutine("STARTGAME");
+        fadeImage.enabled = true;                                           // Attiva l'immagine del fade
+        StartCoroutine("STARTGAME");                                        // Coroutine "STARTGAME", inizializza anche la couroutine del Timer
     }
 	
 	void Update () {
 
-        // COMBO SYSTEM
+        if (isMusicActive)
+        {
+            source.enabled = true;
+        }
+        else
+        {
+            source.enabled = false;
+        }
+
+        #region Combo System
 
         if (comboHit == 2)
         {
-            comboText.text = ("Double Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 64;
+            comboText.transform.DOMoveX(94, 0.3f);
+            comboText.text = (" x" + comboHit);
         }
 
         if (comboHit == 3)
         {
-            comboText.text = ("Triple Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 68;
+            comboText.text = (" x" + comboHit);
         }
 
         if (comboHit == 4)
         {
-            comboText.text = ("Quaternion Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 72;
+            comboText.text = (" x" + comboHit);
         }
 
         if (comboHit == 5)
         {
-            comboText.text = ("Destruction Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 76;
+            comboText.text = (" x" + comboHit);
         }
 
         if (comboHit == 6)
         {
-            comboText.text = ("Beastly Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 80;
+            comboText.text = (" x" + comboHit);
         }
 
         if (comboHit >= 7)
         {
-            comboText.text = ("Maximum Combo!!");
-            comboNumberText.text = ("" + comboHit);
-            comboNumberText.fontSize = 84;
+            comboText.text = ("x" + comboHit);
         }
+        #endregion
+
 
         // Mostra il testo del Timer ed il tempo rimanente
 
+        accidentText.text = ("" + accidentTime);
+
         countdownText.text = ("" + timeLeft);
 
-        results.text = ("Time: " + timeLeft + " - Collectables: " + collectables + " - Combo: " + comboHit);
+        results.text = ("Time: " + timeLeft + "  Collectables: " + collectables + "  Combo: " + comboHit);
 
         if(timeLeft <= 10)
         {
@@ -135,6 +129,14 @@ public class GameManager : MonoBehaviour {
             StartCoroutine("LOSER");
         }
 
+        if(accidentTime <= 0)
+        {
+            StopCoroutine("AccidentCountdown");
+            accidentText.text = "0";
+            StartCoroutine("LOSER");
+        }
+
+
         // Mostra il testo dei Collezionabili
 
         collectableText.text = ("Collectables = " + collectables);
@@ -147,12 +149,14 @@ public class GameManager : MonoBehaviour {
             StartCoroutine("VICTORY");
         }
 
+
     }
 
-    // COUNTDOWN
+    #region Coroutines
 
     IEnumerator Countdown()
     {
+
         while (true)
         {
             yield return new WaitForSeconds(1);
@@ -160,134 +164,101 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    // HUD HIDE ELEMENTS
-
-    public void HUDhide()
-    {
-        resultsTitleText.enabled = false;
-        collectableText.enabled = false;
-        comboText.enabled = false;
-        countdownText.enabled = false;
-        questManager.mainDescription.enabled = false;
-        questManager.secondDescription.enabled = false;
-        questManager.thirdDescription.enabled = false;
-    }
-
-    // START GAME
-
-    public IEnumerator STARTGAME()
-    {
-        // Inizializza le animazioni dell'HUD
-
-        yield return new WaitForSeconds(2);
-        //questManager.mainDescription.DOFade(0, 1);
-        fadeImage.DOFade(0, 1);
-        collectableText.enabled = true;
-        comboText.enabled = true;
-        countdownText.enabled = true;
-
-        // Quest Manager - Abilita i testi
-
-        questManager.mainDescription.enabled = true;
-        questManager.secondDescription.enabled = true;
-        questManager.thirdDescription.enabled = true;
-
-        // Inizializza l'audio
-
-        yield return new WaitForSeconds(1);
-        source.PlayOneShot(carEngineSound);
-        yield return new WaitForSeconds(2.5f);
-        source.PlayOneShot(musicSound);
-
-        // Inizializza la Coroutine del Timer
-
-        StartCoroutine("Countdown");
-
-        // Abilita il Player
-
-        Player.GetComponent<CarController>().enabled = true;
-    }
-
-    // YOU WIN
-
-    public IEnumerator VICTORY()
-    {
-        // Mostra il testo della vittoria
-
-        resultsTitleText.text = ("Well Done!!");
-        resultsTitleText.enabled = true;
-        resultsTitleText.transform.DOLocalMoveX(0, 1);
-
-        // disabilita il Player
-
-        Player.GetComponent<CarController>().enabled = false;
-
-        yield return new WaitForSeconds(2);
-
-        // Inizializza le animazioni dell'HUD
-
-        fadeImage.DOFade(1, 1);
-        countdownText.DOFade(0, 1);
-        collectableText.DOFade(0, 1);
-        comboText.DOFade(0, 1);
-        comboNumberText.DOFade(0, 1);
-        reverseText.DOFade(0, 1);
-
-        // Quest Manager - Manda in fade i testi
-
-        questManager.mainDescription.DOFade(0, 1);
-        questManager.secondDescription.DOFade(0, 1);
-        questManager.thirdDescription.DOFade(0, 1);
-
-        yield return new WaitForSeconds(3);
-
-        resultsTitleText.DOFade(0, 1);
-        results.DOFade(0, 1);
-
-        yield return new WaitForSeconds(5);
-
-        // Carica la scena
-
-        SceneManager.LoadScene("Main");
-    }
-
-    // YOU LOSE
-    public IEnumerator LOSER()
+    public IEnumerator AccidentCountdown()
     {
         yield return new WaitForSeconds(0.1f);
-
-        // Disattiva il Player
-
-        Player.GetComponent<CarController>().isActive = false;
-
-        // Ferma l'accellerazione del Player
-
-        Player.GetComponent<CarController>().Acceleration = 0f;
-
-        // Ferma la Coroutine del Timer
+        Player.GetComponent<CarController>().isActive = false;                          // Disattiva il Player
+        Player.GetComponent<CarController>().Acceleration = 0f;                         // Ferma l'accellerazione del Player
 
         StopCoroutine("Countdown");
 
-        yield return new WaitForSeconds(10);                                             // Tempo da dare agli incidenti
-       
-        fadeImage.DOFade(1, 0.5f);
-        countdownText.DOFade(0, 0.5f);
-        comboText.DOFade(0, 0.5f);
-        comboNumberText.DOFade(0, 0.5f);
-        collectableText.DOFade(0, 0.5f);
-        reverseText.DOFade(0, 0.5f);
+        yield return new WaitForSeconds(2);
 
-        // Quest Manager - Manda in fade i testi
+        accidentText.transform.DOMoveY(150, 0.3f);
 
-        questManager.mainDescription.DOFade(0, 0.5f);
-        questManager.secondDescription.DOFade(0, 0.5f);
-        questManager.thirdDescription.DOFade(0, 0.5f);
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            accidentTime--;
+        }
+    }
 
+    public IEnumerator STARTGAME()
+    {
+
+        yield return new WaitForSeconds(2);
+        fadeImage.DOFade(0, 1);
         yield return new WaitForSeconds(1);
+        fadeImage.enabled = false;                                                       // Disabilita il FadeImage
+        source.PlayOneShot(carEngineSound);
+        yield return new WaitForSeconds(2.5f);
+        source.PlayOneShot(musicSound, volume);
+        StartCoroutine("Countdown");
+        Player.GetComponent<CarController>().enabled = true;
+    }
 
-        // Carica la scena
-
-        SceneManager.LoadScene("Main");
+    public IEnumerator VICTORY()
+    {
+        resultsTitleText.text = ("Well Done!!");
+        resultsTitleText.transform.DOLocalMoveX(0, 1);
+        Player.GetComponent<CarController>().enabled = false;                            // disabilita il Player
+        yield return new WaitForSeconds(2);
+        fadeImage.enabled = true;
+        fadeImage.DOFade(1, 1);
+        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        //restartGame.enabled = true;
+        //quitGame.enabled = true;
 
     }
+
+    public IEnumerator LOSER()
+    {
+
+        /*yield return new WaitForSeconds(0.1f);
+        Player.GetComponent<CarController>().isActive = false;                          // Disattiva il Player
+        Player.GetComponent<CarController>().Acceleration = 0f;                         // Ferma l'accellerazione del Player
+        */
+       
+        //yield return new WaitForSeconds(12);                                            // Tempo da dare agli incidenti                                                              
+        //StopCoroutine("Countdown");                                                     // Ferma la coroutine del Timer
+
+        yield return new WaitForSeconds(2);
+        fadeImage.enabled = true;
+        fadeImage.DOFade(1, 0.5f);
+        isStopAllIA = true;                                                             // Ferma l'IA
+        yield return new WaitForSeconds(1);
+
+        resultsTitleText.text = ("");
+        resultsTitleText.transform.DOLocalMoveX(0, 1);
+        yield return new WaitForSeconds(1);
+
+        //Time.timeScale = 0;
+        //restartGame.enabled = true;
+        //quitGame.enabled = true;
+    }
+
+    public IEnumerator RestartGame()
+    {
+        fadeImage.enabled = true;
+        results.DOFade(0, 0.5f);
+        quitGame.image.DOFade(0, 0.5f);
+        restartGame.image.DOFade(0, 0.5f);
+        fadeImage.DOFade(1, 0.5f);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Main");
+    }
+
+    #endregion
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        StartCoroutine(RestartGame());
+    }
+
 }
