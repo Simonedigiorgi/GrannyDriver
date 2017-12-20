@@ -16,6 +16,7 @@ public class IA : MonoBehaviour {
 
     [Header("Directions and Speed")]
     public Directions directions;
+    public Vector3 spawnPoint = new Vector3(0, 0, 0);
     public float speed;
 
     [Header("Respawn Positions")]
@@ -100,15 +101,13 @@ public class IA : MonoBehaviour {
 
     #region On Trigger Enter
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "Traffico")
         {
-
             if (directions == Directions.Vertical && isActive)
             {
                 transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
-
             }
 
             if (directions == Directions.Horizontal && isActive)
@@ -116,6 +115,10 @@ public class IA : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
             }
 
+            /*if (directions == Directions.Vertical && isActive)
+            {
+                transform.position = spawnPoint;
+            }*/
         }
 
         if (other.gameObject.tag == "ParkingArea" && isIAParking == true)
