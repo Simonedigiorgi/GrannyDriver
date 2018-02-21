@@ -1119,7 +1119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1765744436550962, guid: 6be8e1ac88b939f4e84a7dc5a4b1eb1e, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1765744436550962, guid: 6be8e1ac88b939f4e84a7dc5a4b1eb1e, type: 2}
       propertyPath: m_TagString
@@ -1319,7 +1319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &329124131 stripped
 Transform:
@@ -1353,7 +1353,7 @@ Transform:
   m_Children:
   - {fileID: 864963029}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &361762423
 GameObject:
@@ -1815,7 +1815,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5b3ff024675e2674eb0f69872b59bbf5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b3ff024675e2674eb0f69872b59bbf5, type: 3}
@@ -1891,7 +1891,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4501681981667556, guid: 6386ddf5fc9b06641b1b2f1c1520a938, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 111.9
+      value: 87.4
       objectReference: {fileID: 0}
     - target: {fileID: 4501681981667556, guid: 6386ddf5fc9b06641b1b2f1c1520a938, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2257,47 +2257,6 @@ Prefab:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 549456f60f14b9c409ff4b47d9aa4a47, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &726890739
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 726890742}
-  - component: {fileID: 726890741}
-  m_Layer: 0
-  m_Name: CiclaTraffico (1)
-  m_TagString: Traffico
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &726890741
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 726890739}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &726890742
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 726890739}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.8, y: 5, z: -113.5}
-  m_LocalScale: {x: 20, y: 10, z: 26.386251}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &744219286
 Prefab:
   m_ObjectHideFlags: 0
@@ -2592,7 +2551,7 @@ Prefab:
     - target: {fileID: 114775554442552918, guid: 6c283c6c04e8b984cbb9e243cd04f986,
         type: 2}
       propertyPath: isMusicActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114775554442552918, guid: 6c283c6c04e8b984cbb9e243cd04f986,
         type: 2}
@@ -2609,6 +2568,11 @@ Prefab:
       propertyPath: mainMenu
       value: 
       objectReference: {fileID: 429878709}
+    - target: {fileID: 114775554442552918, guid: 6c283c6c04e8b984cbb9e243cd04f986,
+        type: 2}
+      propertyPath: comboHit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c283c6c04e8b984cbb9e243cd04f986, type: 2}
   m_IsPrefabParent: 0
@@ -2701,47 +2665,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!1 &809904940
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 809904943}
-  - component: {fileID: 809904942}
-  m_Layer: 0
-  m_Name: CiclaTraffico (2)
-  m_TagString: Traffico
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &809904942
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 809904940}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &809904943
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 809904940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.5, y: 5, z: 119.5}
-  m_LocalScale: {x: 20, y: 10, z: 37.08}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &817336665 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4350292232309880, guid: 6be8e1ac88b939f4e84a7dc5a4b1eb1e,
@@ -3964,47 +3887,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4005901742508776, guid: 549456f60f14b9c409ff4b47d9aa4a47,
     type: 2}
   m_PrefabInternal: {fileID: 949401782}
---- !u!1 &1413064165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1413064168}
-  - component: {fileID: 1413064167}
-  m_Layer: 0
-  m_Name: CiclaTraffico (3)
-  m_TagString: Traffico
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1413064167
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1413064165}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1413064168
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1413064165}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.9, y: 5, z: -102.4}
-  m_LocalScale: {x: 20, y: 10, z: 5}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1413215907
 Prefab:
   m_ObjectHideFlags: 0
@@ -5202,7 +5084,7 @@ Transform:
   - {fileID: 1916433239}
   - {fileID: 1596298068}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1724924259
 Prefab:
@@ -5253,6 +5135,41 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 995436596}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: Steer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: isOnGround
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: Acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: isTricks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54591881662679956, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174882033612776, guid: 7b238ebe894c47b4195f1f0d48363966,
+        type: 2}
+      propertyPath: CrashAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 24ec10582254eac4897056aea00448ca, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b238ebe894c47b4195f1f0d48363966, type: 2}
   m_IsPrefabParent: 0
@@ -5490,7 +5407,7 @@ Prefab:
     - target: {fileID: 114141301551998484, guid: ecb550d5d93366849a004b502c4b9158,
         type: 2}
       propertyPath: positionZ
-      value: 180
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 114141301551998484, guid: ecb550d5d93366849a004b502c4b9158,
         type: 2}
@@ -5506,6 +5423,46 @@ Prefab:
         type: 2}
       propertyPath: spawnPoint.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65554806811227904, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 65554806811227904, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 135001389091474416, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135645958705538572, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135374489440541010, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135659885401578936, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114141301551998484, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: positionX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114141301551998484, guid: ecb550d5d93366849a004b502c4b9158,
+        type: 2}
+      propertyPath: explosionJump
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb550d5d93366849a004b502c4b9158, type: 2}

@@ -15,6 +15,7 @@ public class GroundCheck : MonoBehaviour {
         if (other.gameObject.tag == "Plane")
         {
             carController.isOnGround = true;
+            //carController.isTricks = false;
         }
     }
 
@@ -23,6 +24,7 @@ public class GroundCheck : MonoBehaviour {
         if (other.gameObject.tag == "Plane")
         {
             carController.isOnGround = false;
+            //carController.isTricks = true;
         }
     }
 

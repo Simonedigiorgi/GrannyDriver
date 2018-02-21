@@ -29,6 +29,7 @@ public class CarController : MonoBehaviour
 
     private bool isCrashsnd;                                                // Has sound crash triggered? (bool that trigger only ONE time)
     [HideInInspector]  public bool isOnGround;                              // Is the Car colliding the Ground? (Both frontal wheels)
+    //public bool isTricks;
 
     [Header("Audio")]
     public AudioClip grannyAudio1;
@@ -59,7 +60,7 @@ public class CarController : MonoBehaviour
     {
         #region Retromarcia
 
-        if (Input.GetKeyUp(KeyCode.R))                                     // Toggle della Retromarcia
+        if (Input.GetKeyUp(KeyCode.R))                                      // Toggle della Retromarcia
         {
             gameManager.reverseText.enabled = !gameManager.reverseText.enabled;
         }
@@ -81,6 +82,18 @@ public class CarController : MonoBehaviour
         }        
         #endregion
 
+        /*if(isTricks == true)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Rotate(-20, 0, 0);
+                Debug.Log("rotate");
+            }
+            else if (Input.GetKey(KeyCode.W))
+            {
+                transform.Rotate(-2, 0, 0);
+            }
+        }*/
     }
 
     void FixedUpdate()

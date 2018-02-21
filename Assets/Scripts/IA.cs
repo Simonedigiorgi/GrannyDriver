@@ -16,7 +16,6 @@ public class IA : MonoBehaviour {
 
     [Header("Directions and Speed")]
     public Directions directions;
-    public Vector3 spawnPoint = new Vector3(0, 0, 0);
     public float speed;
 
     [Header("Respawn Positions")]
@@ -107,18 +106,13 @@ public class IA : MonoBehaviour {
         {
             if (directions == Directions.Vertical && isActive)
             {
-                transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
+                transform.position = new Vector3(transform.position.x - positionX, transform.position.y, positionZ);
             }
 
             if (directions == Directions.Horizontal && isActive)
             {
-                transform.position = new Vector3(transform.position.x - positionX, transform.position.y, transform.position.z - positionZ);
+                transform.position = new Vector3(positionX - positionX, transform.position.y, transform.position.x - positionZ);
             }
-
-            /*if (directions == Directions.Vertical && isActive)
-            {
-                transform.position = spawnPoint;
-            }*/
         }
 
         if (other.gameObject.tag == "ParkingArea" && isIAParking == true)
@@ -133,7 +127,7 @@ public class IA : MonoBehaviour {
 
     IEnumerator Crash()
     {
-        GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddExplosionForce(explosionForce, Player.transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
         yield return new WaitForSeconds(0.1f);
         isActive = false;
 
