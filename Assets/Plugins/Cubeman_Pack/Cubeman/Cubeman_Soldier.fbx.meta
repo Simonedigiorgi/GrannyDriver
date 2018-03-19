@@ -1,0 +1,1377 @@
+fileFormatVersion: 2
+guid: 7e8f40a75243d8d42b968901bb18648d
+timeCreated: 1510890724
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cubeman_joint
+    100002: //RootNode
+    100004: group1
+    100006: mixamorig1:Hips
+    100008: mixamorig1:LeftArm
+    100010: mixamorig1:LeftFoot
+    100012: mixamorig1:LeftForeArm
+    100014: mixamorig1:LeftHand
+    100016: mixamorig1:LeftLeg
+    100018: mixamorig1:LeftShoulder
+    100020: mixamorig1:LeftUpLeg
+    100022: mixamorig1:Neck
+    100024: mixamorig1:RightArm
+    100026: mixamorig1:RightFoot
+    100028: mixamorig1:RightForeArm
+    100030: mixamorig1:RightHand
+    100032: mixamorig1:RightLeg
+    100034: mixamorig1:RightShoulder
+    100036: mixamorig1:RightUpLeg
+    100038: mixamorig1:Spine
+    100040: mixamorig1:Spine1
+    100042: mixamorig1:Spine2
+    100044: pasted__default1
+    100046: polySurface52
+    100048: polySurface53
+    100050: polySurface54
+    100052: polySurface55
+    100054: polySurface56
+    100056: transform1
+    400000: Cubeman_joint
+    400002: //RootNode
+    400004: group1
+    400006: mixamorig1:Hips
+    400008: mixamorig1:LeftArm
+    400010: mixamorig1:LeftFoot
+    400012: mixamorig1:LeftForeArm
+    400014: mixamorig1:LeftHand
+    400016: mixamorig1:LeftLeg
+    400018: mixamorig1:LeftShoulder
+    400020: mixamorig1:LeftUpLeg
+    400022: mixamorig1:Neck
+    400024: mixamorig1:RightArm
+    400026: mixamorig1:RightFoot
+    400028: mixamorig1:RightForeArm
+    400030: mixamorig1:RightHand
+    400032: mixamorig1:RightLeg
+    400034: mixamorig1:RightShoulder
+    400036: mixamorig1:RightUpLeg
+    400038: mixamorig1:Spine
+    400040: mixamorig1:Spine1
+    400042: mixamorig1:Spine2
+    400044: pasted__default1
+    400046: polySurface52
+    400048: polySurface53
+    400050: polySurface54
+    400052: polySurface55
+    400054: polySurface56
+    400056: transform1
+    4300000: polySurface52
+    4300002: polySurface53
+    4300004: polySurface54
+    4300006: polySurface55
+    4300008: polySurface56
+    7400000: idle
+    7400002: walk
+    7400004: run
+    7400006: back walk
+    7400008: back run
+    7400010: jump1
+    7400012: jump2
+    7400014: idle2
+    7400016: 'idle3 '
+    7400018: right hook
+    7400020: left hook
+    7400022: hit1
+    7400024: hit2
+    7400026: die
+    9500000: //RootNode
+    13700000: polySurface52
+    13700002: polySurface53
+    13700004: polySurface54
+    13700006: polySurface55
+    13700008: polySurface56
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'pasted__Material #29'
+    second: {fileID: 2100000, guid: 26ab64c8b11c2e844acc66f7d4f2d9d7, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 1
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 140
+      lastFrame: 171
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run
+      takeName: Take 001
+      firstFrame: 190
+      lastFrame: 211
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: back walk
+      takeName: Take 001
+      firstFrame: 230
+      lastFrame: 267
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: back run
+      takeName: Take 001
+      firstFrame: 277
+      lastFrame: 298
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: jump1
+      takeName: Take 001
+      firstFrame: 310
+      lastFrame: 340
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: jump2
+      takeName: Take 001
+      firstFrame: 360
+      lastFrame: 431
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle2
+      takeName: Take 001
+      firstFrame: 450
+      lastFrame: 505
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: 'idle3 '
+      takeName: Take 001
+      firstFrame: 520
+      lastFrame: 635
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: right hook
+      takeName: Take 001
+      firstFrame: 655
+      lastFrame: 681
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: left hook
+      takeName: Take 001
+      firstFrame: 700
+      lastFrame: 727
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: hit1
+      takeName: Take 001
+      firstFrame: 740
+      lastFrame: 768
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: hit2
+      takeName: Take 001
+      firstFrame: 780
+      lastFrame: 823
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: die
+      takeName: Take 001
+      firstFrame: 840
+      lastFrame: 920
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cubeman_joint
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:LeftUpLeg/mixamorig1:LeftLeg/mixamorig1:LeftFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:RightUpLeg/mixamorig1:RightLeg/mixamorig1:RightFoot
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:LeftShoulder/mixamorig1:LeftArm/mixamorig1:LeftForeArm/mixamorig1:LeftHand
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:Neck
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm
+        weight: 1
+      - path: Cubeman_joint/mixamorig1:Hips/mixamorig1:Spine/mixamorig1:Spine1/mixamorig1:Spine2/mixamorig1:RightShoulder/mixamorig1:RightArm/mixamorig1:RightForeArm/mixamorig1:RightHand
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__default1
+        weight: 1
+      - path: group1/pasted__default1/polySurface52
+        weight: 1
+      - path: group1/pasted__default1/polySurface53
+        weight: 1
+      - path: group1/pasted__default1/polySurface54
+        weight: 1
+      - path: group1/pasted__default1/polySurface55
+        weight: 1
+      - path: group1/pasted__default1/polySurface56
+        weight: 1
+      - path: group1/pasted__default1/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

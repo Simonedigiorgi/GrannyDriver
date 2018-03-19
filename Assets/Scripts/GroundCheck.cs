@@ -9,13 +9,18 @@ public class GroundCheck : MonoBehaviour {
     void Start () {
         carController = GetComponentInParent<CarController>();
     }
-	
+
     public void OnTriggerStay(Collider other)                                           // Il collider tocca il terreno
     {
         if (other.gameObject.tag == "Plane")
         {
             carController.isOnGround = true;
-            //carController.isTricks = false;
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            carController.isGrannyDriving = false;
+            carController.isOnGround = true;
         }
     }
 
@@ -24,7 +29,12 @@ public class GroundCheck : MonoBehaviour {
         if (other.gameObject.tag == "Plane")
         {
             carController.isOnGround = false;
-            //carController.isTricks = true;
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            carController.isOnGround = false;
+            carController.isGrannyDriving = true;
         }
     }
 

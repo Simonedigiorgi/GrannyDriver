@@ -6,10 +6,11 @@ public class CarController : MonoBehaviour
 {
     public GameManager gameManager;
     private AudioSource source;
+    private Camera mainCamera;
 
     [Header("Car Stats")]
     [Space(10)]
-    public float accellerationSpeed = 0.4f;                                 // Velocità di Accellerazione
+    public float accellerationSpeed = 0.4f;                                 // Velocità di Accellerazionens
     public float decellerationSpeed = 0.4f;                                 // Accellerazione Retromarcia
     public float MaxSpeed = 15.0f;                                          // Velocità Massima
     [Space(10)]
@@ -24,6 +25,8 @@ public class CarController : MonoBehaviour
     bool AccellerationBackwards;
     bool SteerLeft;
     bool SteerRight;
+
+    public SpriteRenderer brakeImage;
            
     int randomNumber;                                                       // Direzioni della guida spericolata
 
@@ -42,6 +45,9 @@ public class CarController : MonoBehaviour
 
     [Header("(DEBUG)")]
     public bool isActive;                                                   // Il Player è attivo  
+    public bool hasVisualBrakes;
+    public bool hasVisualParticles;
+    //public GameObject waterSpash;
     [SerializeField] public float Acceleration = 0.0f;                      // Mostra l'accellerazione
 
     public bool isGrannyDriving = true;                                     // Lasciare attivo per attivare la guida spericolata (DEBUG)
@@ -51,6 +57,7 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+        mainCamera = FindObjectOfType<Camera>().GetComponent<Camera>();
         source = GetComponent<AudioSource>();
         isActive = true;                                                    // Attiva il Player
         InvokeRepeating("RandomDirection", 0, 0.3f);                        // Richiama il metodo RandomDirection e sceglie una direzione casuale
@@ -58,6 +65,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
+
         #region Retromarcia
 
         if (Input.GetKeyUp(KeyCode.R))                                      // Toggle della Retromarcia
@@ -71,7 +79,25 @@ public class CarController : MonoBehaviour
 
         if (Acceleration > MaxSpeed && isGrannyDriving == true)
         {
-            if(randomNumber == 0)                                           // randomNumber 0 corrisponde alla direzione Sinistra
+            // Distanza della Main Camera (FOV) Andata
+
+            mainCamera.orthographicSize = mainCamera.orthographicSize - 4 * Time.deltaTime;
+            if (mainCamera.orthographicSize < 8)
+            {
+                mainCamera.orthographicSize = 8;
+            }
+
+            // Mostra la scia dei freni
+
+            if (hasVisualBrakes)
+            {
+                SpriteRenderer firstBrake = Instantiate(brakeImage, transform.GetChild(2).transform.position, Quaternion.Euler(90, 0, 0));
+                SpriteRenderer secondBrake = Instantiate(brakeImage, transform.GetChild(3).transform.position, Quaternion.Euler(90, 0, 0));
+                Destroy(firstBrake.gameObject, 0.5f);
+                Destroy(secondBrake.gameObject, 0.5f);
+            }
+
+            if (randomNumber == 0)                                           // randomNumber 0 corrisponde alla direzione Sinistra
             {               
                 transform.Rotate(Vector3.down * 5);
             }
@@ -79,21 +105,26 @@ public class CarController : MonoBehaviour
             {
                 transform.Rotate(Vector3.up * 5);
             }
-        }        
-        #endregion
-
-        /*if(isTricks == true)
+        }
+        else
         {
-            if (Input.GetKey(KeyCode.W))
+            // Distanza della Main Camera (FOV) Ritorno
+
+            mainCamera.orthographicSize = mainCamera.orthographicSize + 4 * Time.deltaTime;
+            if (mainCamera.orthographicSize > 16)
             {
-                transform.Rotate(-20, 0, 0);
-                Debug.Log("rotate");
+                mainCamera.orthographicSize = 16;
             }
-            else if (Input.GetKey(KeyCode.W))
+
+            // Particles
+
+            if (hasVisualParticles)
             {
-                transform.Rotate(-2, 0, 0);
+                transform.GetChild(2).GetComponentInChildren<ParticleSystem>().Play();
+                transform.GetChild(3).GetComponentInChildren<ParticleSystem>().Play();
             }
-        }*/
+        }
+        #endregion
     }
 
     void FixedUpdate()
@@ -105,6 +136,7 @@ public class CarController : MonoBehaviour
             if (Input.GetKey(KeyCode.W) && gameManager.reverseText.enabled == false)
             {
                 StartAccelleration(1);                                      // Accelera in direzione Forward
+
             }
 
             else if (Input.GetKey(KeyCode.S) && gameManager.reverseText.enabled == true)
@@ -264,53 +296,30 @@ public class CarController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.tag == "CarTraffic") && !isCrashsnd)
+        if (collision.gameObject.CompareTag("CarTraffic"))
         {
-            GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 20, 10, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddExplosionForce(12, transform.position, 12, 0, ForceMode.Impulse);
+            source.PlayOneShot(CrashAudio, generalVolume);
 
-            #region Stacca le ruote
-
-            // Se attivo stacca le ruote dall'auto
-
-            /*List<Transform> childs = new List<Transform>();
-
-            childs.Add(transform.GetChild(0));
-            childs.Add(transform.GetChild(1));
-            childs.Add(transform.GetChild(2));
-            childs.Add(transform.GetChild(3));
-
-
-            for (int i = 0; i < childs.Count; i++)
+            if (!isCrashsnd)
             {
-                childs[i].gameObject.AddComponent<Rigidbody>();
-                childs[i].parent = null;
-
-                // Attivare per applicare forza alle ruote una volta staccate
-
-                //childs[i].GetComponent<Rigidbody>().AddExplosionForce(40, transform.position, 40, 10, ForceMode.Impulse);
-
-            }*/
-            #endregion
-
-            // Inizializza coroutine
-
-            source.PlayOneShot(grannyAudio1, generalVolume);
-
-            StartCoroutine(gameManager.AccidentCountdown());
-            isCrashsnd = true;
+                source.PlayOneShot(grannyAudio1, generalVolume);
+                StartCoroutine(gameManager.AccidentCountdown());
+                isCrashsnd = true;
+            }
         }
 
-        if ((collision.gameObject.tag == "Buildings") && !isCrashsnd)
+        if ((collision.gameObject.tag == "Buildings"))
         {
-            GetComponent<Rigidbody>().AddExplosionForce(5, transform.position, 5, 10, ForceMode.Impulse);
-
+            GetComponent<Rigidbody>().AddExplosionForce(10, transform.position, 10, 0, ForceMode.Impulse);
             source.PlayOneShot(CrashAudio, generalVolume);
-            source.PlayOneShot(grannyAudio1, generalVolume);
 
-            // Inizializza coroutine
-
-            StartCoroutine(gameManager.AccidentCountdown());
-            isCrashsnd = true;
+            if (!isCrashsnd)
+            {
+                source.PlayOneShot(grannyAudio1, generalVolume);
+                StartCoroutine(gameManager.AccidentCountdown());
+                isCrashsnd = true;
+            }
         }
 
     }

@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     private AudioSource source;
+
     private GameObject Player;                                              // GIOCATORE
-    public QuestManager questManager;                                       // QUEST MANAGER
+    private QuestManager questManager;                                      // QUEST MANAGER
 
     [Space(10)]
-    public Text countdownText;                                              // Testo del Countdown
+    public Text timerText;                                                  // Testo del Countdown
     public Text accidentText;
     public int timeLeft = 30;                                               // Tempo rimanente
     public int bonusTime = 0;                                               // Tempo Bonus
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour {
         Player = GameObject.Find("Player");                                 // Cerca l'oggetto con TAG "Player"
         Player.GetComponent<CarController>().enabled = false;               // Disabilita il Giocatore
         source = GetComponent<AudioSource>();
+        questManager = FindObjectOfType<QuestManager>();
 
         fadeImage.enabled = true;                                           // Attiva l'immagine del fade
         StartCoroutine("STARTGAME");                                        // Coroutine "STARTGAME", inizializza anche la couroutine del Timer
@@ -92,17 +94,17 @@ public class GameManager : MonoBehaviour {
 
         #region Countdown
 
-        countdownText.text = ("" + timeLeft);
+        timerText.text = ("" + timeLeft);
 
         if (timeLeft <= 10)
         {
-            countdownText.color = Color.red;
+            timerText.color = Color.red;
         }
 
         if (timeLeft <= 0)
         {
             StopCoroutine("Countdown");
-            countdownText.text = "" + timeLeft;
+            timerText.text = "" + timeLeft;
             StartCoroutine("LOSER");
         }
         #endregion
@@ -152,6 +154,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         Player.GetComponent<CarController>().isActive = false;                          // Disattiva il Player
         Player.GetComponent<CarController>().Acceleration = 0f;                         // Ferma l'accellerazione del Player
+        
 
         StopCoroutine("Countdown");
 
