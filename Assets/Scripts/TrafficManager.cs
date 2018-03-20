@@ -6,6 +6,7 @@ public class TrafficManager : MonoBehaviour {
 
     private GameManager gameManager;                                             // GAME MANAGER
     private QuestManager questManager;                                           // QUEST MANAGER
+    private Rigidbody rb;
 
     private AudioSource source;                                    
 
@@ -33,6 +34,7 @@ public class TrafficManager : MonoBehaviour {
 
     void Start () {
 
+        rb = GetComponent<Rigidbody>();
         gameManager = FindObjectOfType<GameManager>();
         questManager = FindObjectOfType<QuestManager>();
         source = GetComponent<AudioSource>();
@@ -43,6 +45,7 @@ public class TrafficManager : MonoBehaviour {
         if (isActive)
         {
             transform.Translate(Vector3.forward * -speed * Time.deltaTime);
+            //rb.velocity = (Vector3.forward * -speed * Time.deltaTime);
         }
     }
 
@@ -54,7 +57,8 @@ public class TrafficManager : MonoBehaviour {
             isActive = false;
             gameManager.comboHit++;
             source.PlayOneShot(crashSound, generalVolume);
-            GetComponent<Rigidbody>().AddExplosionForce(12, FindObjectOfType<CarController>().transform.position, 12, 0, ForceMode.Impulse);
+            //GetComponent<Rigidbody>().AddExplosionForce(12, FindObjectOfType<CarController>().transform.position, 12, 0, ForceMode.Impulse);
+            rb.isKinematic = false;
         }
 
         if (collision.gameObject.CompareTag("CarTraffic"))
@@ -63,6 +67,7 @@ public class TrafficManager : MonoBehaviour {
             gameManager.comboHit++;
             source.PlayOneShot(crashSound, generalVolume);
             GetComponent<Rigidbody>().AddExplosionForce(12, FindObjectOfType<CarController>().transform.position, 12, 0, ForceMode.Impulse);
+            rb.isKinematic = false;
         }
 
         if ((/*collision.gameObject.CompareTag("Player") || */collision.gameObject.CompareTag("Environment") 
@@ -70,8 +75,9 @@ public class TrafficManager : MonoBehaviour {
         {
             isActive = false;
             isFirstImpact = false;
+            rb.isKinematic = false;
 
-            if(hasExplosionForce)
+            if (hasExplosionForce)
                 GetComponent<Rigidbody>().AddExplosionForce(explosionForce, FindObjectOfType<CarController>().transform.position, explosionRadius, explosionJump, ForceMode.Impulse);
         }
 
@@ -81,6 +87,7 @@ public class TrafficManager : MonoBehaviour {
             source.PlayOneShot(crashSound, generalVolume);
             gameManager.comboHit++;
             hasAudioTriggered = true;
+            rb.isKinematic = false;
 
             if (isHornActive)
             {

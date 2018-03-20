@@ -5,12 +5,12 @@ using UnityEngine;
 public class LimitWall : MonoBehaviour {
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("CarTraffic"))
         {
-            Debug.Log("Collision");
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }
     }
+
 }

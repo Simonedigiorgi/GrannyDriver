@@ -110,11 +110,16 @@ public class CarController : MonoBehaviour
         {
             // Distanza della Main Camera (FOV) Ritorno
 
-            mainCamera.orthographicSize = mainCamera.orthographicSize + 4 * Time.deltaTime;
-            if (mainCamera.orthographicSize > 16)
+            if(FindObjectOfType<NPC>().startScene == false)
             {
-                mainCamera.orthographicSize = 16;
+                mainCamera.orthographicSize = mainCamera.orthographicSize + 4 * Time.deltaTime;
+                if (mainCamera.orthographicSize > 16)
+                {
+                    mainCamera.orthographicSize = 16;
+                }
             }
+
+
 
             // Particles
 
@@ -298,11 +303,12 @@ public class CarController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("CarTraffic"))
         {
-            GetComponent<Rigidbody>().AddExplosionForce(12, transform.position, 12, 0, ForceMode.Impulse);
-            source.PlayOneShot(CrashAudio, generalVolume);
+            GetComponent<Rigidbody>().AddExplosionForce(2, transform.position, 2, 0, ForceMode.Impulse);
+            //source.PlayOneShot(CrashAudio, 0.3f);
 
-            if (!isCrashsnd)
+            if (isCrashsnd == false)
             {
+
                 source.PlayOneShot(grannyAudio1, generalVolume);
                 StartCoroutine(gameManager.AccidentCountdown());
                 isCrashsnd = true;
@@ -311,12 +317,12 @@ public class CarController : MonoBehaviour
 
         if ((collision.gameObject.tag == "Buildings"))
         {
-            GetComponent<Rigidbody>().AddExplosionForce(10, transform.position, 10, 0, ForceMode.Impulse);
-            source.PlayOneShot(CrashAudio, generalVolume);
+            GetComponent<Rigidbody>().AddExplosionForce(2, transform.position, 2, 0, ForceMode.Impulse);
+            source.PlayOneShot(CrashAudio, 0.3f);
 
             if (!isCrashsnd)
             {
-                source.PlayOneShot(grannyAudio1, generalVolume);
+                source.PlayOneShot(grannyAudio1, 0.3f);
                 StartCoroutine(gameManager.AccidentCountdown());
                 isCrashsnd = true;
             }
