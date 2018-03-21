@@ -6,45 +6,29 @@ using DG.Tweening;
 
 public class QuestManager : MonoBehaviour
 {
-
-    public enum MainMission { None, Main1, Main2, Main3 }
-    public enum SecondMission { None, Second1, Second2, Second3 }
-    public enum ThirdMission { None, Third1, Third2, Third3 }
-
-    public GameManager gameManager;
-    public CarController carController;
-
-
+    public enum MainMission { None, Main1, Main2 }
     public MainMission mainMissions;
-    public SecondMission secondMission;
-    public ThirdMission thirdMission;
+
+    private GameManager gameManager;
+    private CarController carController;
 
     [Header("Main Mission")]
-    public Text mainTitle;
     public Text mainDescription;
-
-    [Header("Second Mission")]
-    public Text secondTitle;
-    public Text secondDescription;
-
-    [Header("Third Mission")]
-    public Text thirdTitle;
-    public Text thirdDescription;
-
+    public Image descriptionImage;
 
     void Start()
     {
-
+        gameManager = FindObjectOfType<GameManager>();
+        carController = FindObjectOfType<CarController>();
     }
 
     void Update()
     {
-
         // MAIN MISSION CONDITIONS
 
         if (mainMissions == MainMission.None)
         {
-            mainDescription.text = ("");
+            mainDescription.text = ("Go to the Auto Repair");
         }
 
         if (mainMissions == MainMission.Main1)
@@ -56,32 +40,6 @@ public class QuestManager : MonoBehaviour
         {
             Mission2();
         }
-
-
-        // SECOND MISSION CONDITIONS
-
-        if (secondMission == SecondMission.None)
-        {
-            secondDescription.text = ("");
-        }
-
-        if (secondMission == SecondMission.Second1)
-        {
-            Secondary1();
-        }
-
-        // THIRD MISSION CONDITIONS
-
-        if (thirdMission == ThirdMission.None)
-        {
-            thirdDescription.text = ("");
-        }
-
-        if (thirdMission == ThirdMission.Third1)
-        {
-            Third1();
-        }
-
     }
 
     // MAIN MISSIONS
@@ -90,8 +48,7 @@ public class QuestManager : MonoBehaviour
     {
         bool isCompleted;
 
-        //mainTitle.text = ("");
-        mainDescription.text = ("Raccogli tutti i collezionabili");
+        mainDescription.text = ("Collect all back pain pills " + gameManager.collectables + "/5");
 
         if (gameManager.collectables == 5)
         {
@@ -104,19 +61,19 @@ public class QuestManager : MonoBehaviour
 
         if (isCompleted)
         {
-            mainDescription.text = ("Raccogli tutti i collezionabili");
+            mainDescription.text = ("Completed");
             mainDescription.color = Color.red;
         }
     }
 
-    public void Mission2()                                                                // Mission (2)
+    public void Mission2()
     {
         bool isCompleted;
 
-        //mainTitle.text = ("");
-        mainDescription.text = ("Parcheggiati sulla Piscina");
+        descriptionImage.transform.DOMoveX(10, 1);
+        mainDescription.text = "Go to the Auto Repair";
 
-        if (carController.isParkingTrue == true)
+        if (gameManager.collectables == 5)
         {
             isCompleted = true;
         }
@@ -127,62 +84,8 @@ public class QuestManager : MonoBehaviour
 
         if (isCompleted)
         {
-            mainDescription.text = ("Parcheggiati sulla Piscina");
+            mainDescription.text = ("Completed");
             mainDescription.color = Color.red;
         }
-
     }
-
-    // SECONDARY MISSIONS
-
-    public void Secondary1()                                                                // Secondary (1)
-    {
-        bool isCompleted;
-
-        //secondaryTitle.text = ("");
-        secondDescription.text = ("Ottieni una combo da 7");
-
-        if (gameManager.comboHit >= 7)
-        {
-            isCompleted = true;
-        }
-        else
-        {
-            isCompleted = false;
-        }
-
-        if (isCompleted)
-        {
-            secondDescription.text = ("Ottieni una combo da 7");
-            secondDescription.color = Color.red;
-        }
-
-    }
-
-    // THIRD MISSIONS
-
-    public void Third1()                                                                    // Third (1)
-    {
-        bool isCompleted;
-
-        //thirdTitle.text = ("");
-        thirdDescription.text = ("Parcheggia la Limousine sulla piscina");
-
-        if (gameManager.isIAParkingTrue == true)
-        {
-            isCompleted = true;
-        }
-        else
-        {
-            isCompleted = false;
-        }
-
-        if (isCompleted)
-        {
-            thirdDescription.text = ("Parcheggia la Limousine sulla piscina");
-            thirdDescription.color = Color.red;
-        }
-
-    }
-
 }

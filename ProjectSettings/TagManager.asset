@@ -17,6 +17,7 @@ TagManager:
   - Buildings
   - Water
   - Limit_Wall
+  - Popup
   layers:
   - Default
   - TransparentFX

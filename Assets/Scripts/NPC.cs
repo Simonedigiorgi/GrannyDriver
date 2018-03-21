@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine;
 
 public class NPC : MonoBehaviour {
@@ -7,7 +9,9 @@ public class NPC : MonoBehaviour {
     private AudioSource source;
     private Animator anim;
     private Camera mainCamera;
+    public Image popup;
 
+    public bool isCutScene;
     public bool startScene;
     public bool isFirstTime = true;
 
@@ -20,25 +24,31 @@ public class NPC : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (startScene)
+
+        if (isCutScene)
         {
-            mainCamera.orthographicSize = mainCamera.orthographicSize - 8 * Time.deltaTime;
-            if (mainCamera.orthographicSize < 4)
+            if (startScene)
             {
-                mainCamera.orthographicSize = 4;
+                mainCamera.orthographicSize = mainCamera.orthographicSize - 8 * Time.deltaTime;
+                if (mainCamera.orthographicSize < 4)
+                {
+                    mainCamera.orthographicSize = 4;
+                }
+            }
+            else if (startScene == false)
+            {
+                // Distanza della Main Camera (FOV) Ritorno
+
+                mainCamera.orthographicSize = mainCamera.orthographicSize + 8 * Time.deltaTime;
+                if (mainCamera.orthographicSize > 16)
+                {
+                    mainCamera.orthographicSize = 16;
+                }
+
             }
         }
-        /*else if(startScene == false)
-        {
-            // Distanza della Main Camera (FOV) Ritorno
 
-            mainCamera.orthographicSize = mainCamera.orthographicSize + 8 * Time.deltaTime;
-            if (mainCamera.orthographicSize > 16)
-            {
-                mainCamera.orthographicSize = 16;
-            }
 
-        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,6 +67,7 @@ public class NPC : MonoBehaviour {
         {
             if (isFirstTime)
             {
+                isCutScene = true;
                 StartCoroutine(CutScene());
                 isFirstTime = false;
             }
@@ -69,8 +80,13 @@ public class NPC : MonoBehaviour {
         FindObjectOfType<CarController>().Acceleration = 0;
         FindObjectOfType<CarController>().isActive = false;
         startScene = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
+        popup.GetComponent<RectTransform>().DOScale(1, 0.2f);
+        yield return new WaitForSeconds(8);
         startScene = false;
+
+        FindObjectOfType<QuestManager>().Mission2();
         FindObjectOfType<CarController>().isActive = true;
+        popup.GetComponent<RectTransform>().DOScale(0, 0.2f);
     }
 }

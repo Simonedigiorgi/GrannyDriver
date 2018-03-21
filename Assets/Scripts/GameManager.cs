@@ -24,14 +24,6 @@ public class GameManager : MonoBehaviour {
     public int collectables = 0;                                            // Collezionabili
 
     [Space(10)]
-    public Text comboText;                                                  // Testo degli incidenti
-    //public Text comboNumberText;                                          // Testo del numero della combo
-    public int comboHit = 0;                                                // Ammontare della combo
-
-    [Space(10)]
-    public Text reverseText;                                                // Testo della Retromarcia
-
-    [Space(10)]
     public Text resultsTitleText;                                           // Testo della Vittoria
     public Text results;
 
@@ -47,14 +39,9 @@ public class GameManager : MonoBehaviour {
     public AudioClip carEngineSound;
     public AudioClip musicSound;
     public float volume = 0.3f;
-    [HideInInspector] public int IAParkingTime = 0;                         // L'IA ha parcheggiato
-    public bool isIAParkingTrue;
-
 
     [Header("DEBUG")]
     public bool isMusicActive;                                              // Attiva la Musica (DEBUG)
-    public bool isStopAllIA;                                                // Setta la speed dell'IA su 0
-
 
     void Start () {
 
@@ -65,8 +52,6 @@ public class GameManager : MonoBehaviour {
 
         fadeImage.enabled = true;                                           // Attiva l'immagine del fade
         StartCoroutine("STARTGAME");                                        // Coroutine "STARTGAME", inizializza anche la couroutine del Timer
-
-
     }
 	
 	void Update () {
@@ -83,18 +68,9 @@ public class GameManager : MonoBehaviour {
         }
         #endregion
 
-        #region Combo System
-
-        if (comboHit >= 2)
-        {
-            comboText.transform.DOMoveX(94, 0.3f);
-            comboText.text = (" x" + comboHit);
-        }
-        #endregion
-
         #region Countdown
 
-        timerText.text = ("" + timeLeft);
+        timerText.text = ("Time Left: " + timeLeft);
 
         if (timeLeft <= 10)
         {
@@ -104,7 +80,7 @@ public class GameManager : MonoBehaviour {
         if (timeLeft <= 0)
         {
             StopCoroutine("Countdown");
-            timerText.text = "" + timeLeft;
+            timerText.text = "Time Left: " + timeLeft;
             StartCoroutine("LOSER");
         }
         #endregion
@@ -135,7 +111,7 @@ public class GameManager : MonoBehaviour {
 
         // Risultati Partita
 
-        results.text = ("Time: " + timeLeft + "  Collectables: " + collectables + "  Combo: " + comboHit);
+        results.text = ("Time: " + timeLeft + "  Collectables: " + collectables);
     }
 
     #region Coroutines
@@ -152,9 +128,6 @@ public class GameManager : MonoBehaviour {
     public IEnumerator AccidentCountdown()
     {
         yield return new WaitForSeconds(0.1f);
-        Player.GetComponent<CarController>().isActive = false;                          // Disattiva il Player
-        Player.GetComponent<CarController>().Acceleration = 0f;                         // Ferma l'accellerazione del Player
-        
 
         StopCoroutine("Countdown");
 
@@ -199,7 +172,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(2);
         fadeImage.enabled = true;
         fadeImage.DOFade(1, 0.5f);
-        isStopAllIA = true;                                                             // Ferma l'IA
+        //isStopAllIA = true;                                                             // Ferma l'IA
         yield return new WaitForSeconds(1);
 
         resultsTitleText.text = ("");
